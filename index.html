@@ -22,7 +22,7 @@
   --display:"Manrope","Noto Sans KR",system-ui,sans-serif;
   --mono:"IBM Plex Mono","Noto Sans KR",ui-monospace,Menlo,monospace;
   --body:"Manrope","Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --gut:max(20px,env(safe-area-inset-left,0px));
+  --gut:max(clamp(24px,5vw,80px),env(safe-area-inset-left,0px));
 }
 .ui-light{--bg:#ffffff;--surface:#f3f4f7;--surface2:#e8eaf0;--fg:#070b20;--muted:#5b617a;--line:rgba(7,11,32,.18);--accent:#8a6a2f;--accent-fg:#ffffff;--leased:#a6a9b6}
 *{box-sizing:border-box}
@@ -209,7 +209,7 @@ a{color:inherit}
 .gi.l{grid-column:7/-1;margin-top:clamp(24px,7vw,100px)}
 .dir{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;margin-top:clamp(64px,10vw,150px)}
 .dir .gi{grid-column:auto}
-.dir1{grid-template-columns:minmax(0,680px)}
+.dir1{grid-template-columns:minmax(0,680px);justify-content:center}
 .board{border:1px solid var(--line);padding:clamp(20px,3vw,44px)}
 .board h3{margin:0 0 20px;font-weight:500;font-size:11px;letter-spacing:.14em;color:var(--accent)}
 .drow{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line)}
@@ -284,7 +284,9 @@ h2.big{margin:0;font-weight:300;font-size:clamp(34px,7.2vw,100px);line-height:1.
 .views button:hover,.ghost:hover{border-color:var(--accent)}
 .views button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
 .views .sp{flex:1}
-.hint{position:absolute;bottom:calc(var(--vh,48px) + 20px);left:12px;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;pointer-events:none}
+.rst{position:absolute;top:12px;right:12px;z-index:3;background:color-mix(in srgb,var(--bg) 78%,transparent);border:1px solid var(--line);color:var(--fg);padding:6px 14px;font:inherit;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;backdrop-filter:blur(8px);min-height:36px;cursor:pointer;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.rst:hover{border-color:var(--accent);color:var(--accent)}
+.hint[data-i18n="hint"]{position:absolute;bottom:calc(var(--vh,48px) + 20px);left:12px;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;pointer-events:none}
 .panel{background:var(--surface);border-left:1px solid var(--line);padding:26px;min-width:0}
 .kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
 .panel h2{font-weight:300;font-size:30px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.01em;text-transform:uppercase}
@@ -404,7 +406,7 @@ h2.big{letter-spacing:-.025em}
 .amen{gap:clamp(16px,2.4vw,32px)}
 .amen div{padding-top:22px;gap:14px;transition:border-color .6s var(--ease)}
 .amen div:hover{border-top-color:var(--accent)}
-.amen .am{width:44px;height:44px;margin-bottom:6px;transition:transform .8s var(--ease)}
+.amen .am{width:44px;height:44px;margin:0 0 6px -7px;transition:transform .8s var(--ease)}
 .amen div:hover .am{transform:translateY(-4px)}
 .amen span{font-size:clamp(17px,1.9vw,26px);font-weight:300;letter-spacing:0;text-transform:none}
 .avail2{gap:clamp(16px,2.4vw,32px)}
@@ -432,6 +434,9 @@ h2.big{letter-spacing:-.025em}
 .contacts .cc:last-child a{font-size:clamp(22px,3vw,40px);margin:0}
 .cc-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
 .cc-act a.pill{display:inline-flex;align-items:center;font-size:12px;letter-spacing:.08em;margin:0;color:var(--accent-fg);background:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:8px 20px;text-decoration:none;font-weight:500}
+.contacts .cc .cc-act a.pill{font-size:12px;line-height:1.2;margin:0;letter-spacing:.08em;font-weight:500}
+.contacts .cc:last-child{align-items:center}.contacts .cc:last-child a:first-of-type{flex:1;text-align:center}.contacts .cc:last-child .cc-act{margin-top:0;align-items:center}
+.mform{margin-inline:auto}.mform h3,.mnote{text-align:center}.mact{justify-content:center}
 .cc-act a.pill:hover{color:var(--accent-fg);opacity:.85}
 @media (max-width:640px){.contacts{grid-template-columns:1fr}.contacts .cc:last-child{flex-direction:column;align-items:flex-start}}
 </style>
@@ -512,6 +517,7 @@ h2.big{letter-spacing:-.025em}
       <div class="stage" id="stage">
         <canvas id="gl"></canvas>
         <div class="labels" id="labels"></div>
+        <button type="button" class="rst" id="rst"></button>
         <div class="hint" data-i18n="hint"></div>
         <div class="views" id="views"></div>
         <div class="viewer" id="viewer" hidden><img id="vimg" alt=""><div class="vc" id="vcap"></div><div class="vb"><button type="button" class="ghost" data-v="prev" data-i18n="prev"></button><button type="button" class="ghost" data-v="next" data-i18n="next"></button><button type="button" class="ghost" data-v="close" data-i18n="close"></button></div></div>
@@ -666,9 +672,9 @@ ko:{
  fit4t:'사무실 · 병원',fit4p:'정남향이라 낮에 밝은 한 층',
  srcT:'출처',gAll:'전체',gExt:'외관',g2:'2층',g3:'3층',g4:'4층',gView:'전망',
  
- cap0:'이마트사거리 쪽에서 본 건물',cap1:'4층 2호 내부',cap2:'아래층 매장과 간판',cap3:'3층 사무실, 큰 창',cap4:'1층 입주 안내판',cap5:'창밖으로 보이는 이마트',cap6:'3층 사무실 내부',cap7:'호실 출입문',cap8:'2층 전체, 60평',cap9:'나무 패널과 거울 벽',cap10:'벽돌 벽과 큰 창',cap11:'2층 창밖으로 보이는 이마트',g2T:'2층, 60평 한 층',
+ cap0:'이마트사거리 쪽에서 본 건물',cap1:'4층 2호 내부',cap2:'아래층 매장과 간판',cap3:'3층 사무실, 사거리가 보이는 넓고 높은 창',cap4:'1층 입주 안내판',cap5:'창밖으로 보이는 이마트',cap6:'3층 사무실 내부',cap7:'호실 출입문',cap8:'2층 전체, 60평',cap9:'나무 패널과 거울 벽',cap10:'자연광이 가득 드는 넓고 높은 창',cap11:'2층 창밖으로 보이는 이마트',g2T:'2층, 60평 한 층',
  dirT:'현재 입주 업체',dirNote:'1층 안내판을 기준으로 했어요. 입주 현황은 바뀔 수 있습니다.',
- aElev:'엘리베이터',aStairs:'층마다 화장실 비치',aPark:'건물 앞 전용 주차',aCorner:'대로변 홍보 효과',
+ aElev:'엘리베이터',aStairs:'2·3층 화장실',aPark:'건물 앞 전용 주차',aCorner:'대로변 홍보 효과',
  ex:'열기',lbClose:'닫기',
 navSpace:'3D로 보기',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안내',mSpace:'3D로 둘러보기',mPort:'포트폴리오',mContact:'문의',
  tagA:'충주의 중심,',tagC:'무엇이든 담는',tagB:'고급 복합 건물',
@@ -677,13 +683,13 @@ navSpace:'3D로 보기',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안내'
  spaceH:'3D로 먼저|둘러보세요',pfH:'포트폴리오|3동',inqH:'문의하기',
  uFloors:'층',uUnits:'호',sFloors:'지상 층수',sUnits:'전체 호실 (층당 2호)',sArea:'4층 2호 전용면적 (평: 15.0)',uRent:'만원 / 월',sRent:'4층 2호 월세 · 보증금 2,000만원',rentNum:'200',
  r1t:'길 건너가 이마트',r1p:'사거리 모퉁이라 어느 방향에서 오셔도 간판이 보여요. 건물 앞에는 전용 주차 공간도 있습니다.',
- r2t:'어떤 일이든',r2p:'카페, 매장, 사무실, 스터디카페까지. 엘리베이터가 있고 층마다 화장실이 있어요.',
+ r2t:'어떤 일이든',r2p:'카페, 매장, 사무실, 스터디카페까지. 엘리베이터가 있고 2·3층에 화장실이 있어요.',
  r3t:'조건은 솔직하게',r3p:'권리금 없이 건물주와 직접 이야기합니다. 건물 전체를 넘기는 이야기도 열어두고 있어요.',
 
  heroTitle:'충주의 중심, 한 건물씩.',
  heroSub:'이마트사거리 코너의 건물을 3D로 둘러보고, 층별 임대 또는 건물 전체 매각 정보를 확인하세요.',
  ctaLease:'비어 있는 4층 보기',ctaSale:'건물 매입 상담',
- facts:['이마트 맞은편 코너','건물 앞 전용 주차','엘리베이터와 층마다 화장실','4층 2호 바로 입주'],
+ facts:['이마트 맞은편 코너','건물 앞 전용 주차','엘리베이터와 2·3층 화장실','4층 2호 바로 입주'],
  mapLink:'네이버 지도에서 보기',mapNote:'주변 도로와 건물은 오픈스트리트맵 데이터이며, 건물 위치는 이마트사거리 서측 코너로 지정한 위치입니다. 지적도로 확정 예정.',addPhotos:'사진 추가',close:'닫기',prev:'이전',next:'다음',
  hint:'드래그로 회전 · Ctrl/⌘+휠로 확대 · 층을 눌러 선택',
  kicker:'건물 A · 포트폴리오 3동 중',bTitle:'중원대로 3424',bSub:'충주시 문화동 467 · 이마트사거리 코너',
@@ -726,9 +732,9 @@ en:{
  fit4t:'Office & clinic',fit4p:'A south-facing floor, bright all day',
  srcT:'Sources',gAll:'All',gExt:'Exterior',g2:'2F',g3:'3F',g4:'4F',gView:'Views',
  
- cap0:'The building from the junction',cap1:'Inside unit 4-2',cap2:'Shopfronts and signage',cap3:'Third-floor office, full-height glass',cap4:'The lobby directory',cap5:'Emart across the road, from a window',cap6:'Inside a third-floor office',cap7:'A unit entrance',cap8:'The whole second floor, 198 ㎡',cap9:'Wood panels and a mirror wall',cap10:'Brick wall and tall glass',cap11:'Emart from a second-floor window',g2T:'Second floor, one open 198 ㎡ plate',
+ cap0:'The building from the junction',cap1:'Inside unit 4-2',cap2:'Shopfronts and signage',cap3:'Third-floor office, wide windows over the junction',cap4:'The lobby directory',cap5:'Emart across the road, from a window',cap6:'Inside a third-floor office',cap7:'A unit entrance',cap8:'The whole second floor, 198 ㎡',cap9:'Wood panels and a mirror wall',cap10:'Wide, tall windows with natural light',cap11:'Emart from a second-floor window',g2T:'Second floor, one open 198 ㎡ plate',
  dirT:'Current occupants',dirNote:'Taken from the lobby directory. Occupancy changes over time.',
- aElev:'Elevator',aStairs:'A restroom on every floor',aPark:'Parking out front',aCorner:'Main-road exposure',
+ aElev:'Elevator',aStairs:'Restrooms on 2F and 3F',aPark:'Parking out front',aCorner:'Main-road exposure',
  ex:'Open',lbClose:'Close',
 navSpace:'View in 3D',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',mSpace:'Explore in 3D',mPort:'Portfolio',mContact:'Contact',
  tagA:'The heart of Chungju,',tagC:'built to hold anything,',tagB:'a luxury multi‑use building',
@@ -737,13 +743,13 @@ navSpace:'View in 3D',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',mSp
  spaceH:'Walk the building|in 3D first',pfH:'Three|buildings',inqH:'Get in touch',
  uFloors:'F',uUnits:'units',sFloors:'Floors above ground',sUnits:'Units in total (2 per floor)',sArea:'Unit 4-2 net area (49.5 ㎡)',uRent:'M KRW / mo',sRent:'Unit 4-2 rent · deposit 20M KRW',rentNum:'2.0',
  r1t:'Emart is across the road',r1p:'On the junction corner, the signage reads from every direction. There is dedicated parking right in front.',
- r2t:'Almost any trade',r2p:'Cafe, shop, office or study space. There is an elevator, and a restroom on every floor.',
+ r2t:'Almost any trade',r2p:'Cafe, shop, office or study space. There is an elevator, and restrooms on the 2nd and 3rd floors.',
  r3t:'Plain terms',r3p:'No key money, and you deal with the owner directly. We are open to selling the whole building too.',
 
  heroTitle:'The heart of Chungju, one building at a time.',
  heroSub:'Walk around the corner building at Emart intersection in 3D, then check floor-by-floor leasing or the whole-building sale.',
  ctaLease:'See the open 4F unit',ctaSale:'Ask about buying',
- facts:['Corner across from Emart','Dedicated parking out front','Elevator and a restroom on every floor','Unit 4-2 ready now'],
+ facts:['Corner across from Emart','Dedicated parking out front','Elevator and restrooms on 2F and 3F','Unit 4-2 ready now'],
  mapLink:'Open in Naver Map',mapNote:'Roads and neighbouring buildings are OpenStreetMap data. The building sits on the west corner of the Emart junction as placed by the owner; it will be fixed with the cadastral map.',addPhotos:'Add photos',close:'Close',prev:'Previous',next:'Next',
  hint:'Drag to orbit · Ctrl/⌘ + scroll to zoom · Click a floor',
  kicker:'Building A · 1 of 3 in the portfolio',bTitle:'3424 Jungwon-daero',bSub:'467 Munhwa-dong, Chungju · Emart intersection corner',
@@ -825,8 +831,8 @@ function renderInterest(){
 function renderViews(){
   var t=T(),box=document.getElementById('views'),h='';
   ['map','corner','front','rear','aerial','core'].forEach(function(k){h+='<button type="button" data-view="'+k+'" aria-pressed="'+(curView===k)+'">'+t.views[k]+'</button>'});
-  h+='<button type="button" id="rst">↺ '+t.reset+'</button>';h+='<button type="button" id="pinb" aria-pressed="'+!!window.__pins+'">'+t.pinsB+'</button>';h+='<button type="button" id="expb" aria-pressed="'+exploded+'">'+t.explode+'</button>'+(have().length?'':'<button type="button" id="addph">'+t.addPhotos+'</button>')+'<span class="sp"></span><button type="button" id="spin" aria-pressed="'+autoSpin+'">'+t.spin+'</button>';
-  box.innerHTML=h;
+  h+='<button type="button" id="pinb" aria-pressed="'+!!window.__pins+'">'+t.pinsB+'</button>';h+='<button type="button" id="expb" aria-pressed="'+exploded+'">'+t.explode+'</button>'+(have().length?'':'<button type="button" id="addph">'+t.addPhotos+'</button>')+'<span class="sp"></span><button type="button" id="spin" aria-pressed="'+autoSpin+'">'+t.spin+'</button>';
+  box.innerHTML=h;var rb=document.getElementById('rst');if(rb)rb.textContent='↺ '+t.reset;
   box.parentNode.style.setProperty('--vh',box.offsetHeight+'px');if(!window.__vhr){window.__vhr=1;addEventListener('resize',function(){var b=document.getElementById('views');if(b)b.parentNode.style.setProperty('--vh',b.offsetHeight+'px')})}
 }
 function renderFacts(){var fe=document.getElementById('facts');if(!fe)return;fe.innerHTML=T().facts.map(function(f){return '<li>'+f+'</li>'}).join('')}
