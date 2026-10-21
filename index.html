@@ -23,6 +23,7 @@
   --mono:"IBM Plex Mono","Noto Sans KR",ui-monospace,Menlo,monospace;
   --body:"Manrope","Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:max(clamp(24px,5vw,80px),env(safe-area-inset-left,0px));
+  --gutr:max(clamp(24px,5vw,80px),env(safe-area-inset-right,0px));
 }
 .ui-light{--bg:#ffffff;--surface:#f3f4f7;--surface2:#e8eaf0;--fg:#070b20;--muted:#5b617a;--line:rgba(7,11,32,.18);--accent:#8a6a2f;--accent-fg:#ffffff;--leased:#a6a9b6}
 *{box-sizing:border-box}
@@ -31,11 +32,11 @@ body{word-break:keep-all;overflow-wrap:break-word;margin:0;background:var(--navy
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 a{color:inherit}
-.sec{position:relative;background:var(--bg);color:var(--fg);padding:clamp(72px,12vw,160px) max(20px,env(safe-area-inset-right,0px)) clamp(72px,12vw,160px) var(--gut)}
+.sec{position:relative;background:var(--bg);color:var(--fg);padding:clamp(72px,12vw,160px) var(--gutr) clamp(72px,12vw,160px) var(--gut)}
 .in-w{max-width:1360px;margin:0 auto}
 .up{text-transform:uppercase;letter-spacing:.04em;font-weight:500;font-size:11px}
 /* header */
-.hd{position:fixed;left:0;right:0;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(20px,env(safe-area-inset-right,0px)) 14px var(--gut);color:#fff;mix-blend-mode:difference;pointer-events:none}
+.hd{position:fixed;left:0;right:0;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px var(--gutr) 14px var(--gut);color:#fff;mix-blend-mode:difference;pointer-events:none}
 .hd>*{pointer-events:auto}
 .burger{height:40px;display:flex;align-items:center;gap:12px;padding:0 4px;color:inherit}
 .burger .bl{display:flex;flex-direction:column;gap:5px;width:22px}
@@ -49,13 +50,13 @@ a{color:inherit}
 .hd .lg button{padding:8px 4px;opacity:.5}
 .hd .lg button[aria-pressed="true"]{opacity:1}
 /* menu overlay */
-.menu{position:fixed;inset:0;z-index:60;background:var(--navy);color:var(--fg);display:flex;flex-direction:column;justify-content:center;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 var(--gut);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path 1s var(--ease),visibility 0s 1s}
+.menu{position:fixed;inset:0;z-index:60;background:var(--navy);color:var(--fg);display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutr) 0 var(--gut);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path 1s var(--ease),visibility 0s 1s}
 .menu.open{clip-path:inset(0);visibility:visible;transition:clip-path 1s var(--ease)}
 .menu a{display:flex;align-items:baseline;gap:20px;text-decoration:none;font-weight:300;font-size:clamp(20px,2.8vw,34px);line-height:1.2;text-transform:uppercase;padding:18px 0;align-items:center;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease),color .5s var(--ease)}
 .menu a:hover{padding-left:24px;color:var(--accent)}
 .menu{max-width:none}.menu a{max-width:640px;width:100%;gap:18px}.menu a .mi{width:24px;height:24px;flex:none;color:var(--accent);opacity:.85}
 .menu a small{font-size:11px;letter-spacing:.1em;color:var(--muted);min-width:2.2em;font-weight:500}
-.mclose{position:absolute;top:14px;right:max(20px,env(safe-area-inset-right,0px));min-height:36px;padding:8px 0}
+.mclose{position:absolute;top:14px;right:var(--gutr);min-height:36px;padding:8px 0}
 /* intro */
 .intro{position:relative;height:100svh;min-height:640px;background:var(--navy);overflow:hidden;--p:0}
 .intro-in{position:relative;height:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:clamp(16px,4vw,72px);padding:96px var(--gut) 72px}
@@ -231,7 +232,7 @@ a{color:inherit}
 .amen div{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px}
 .amen b{font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--accent)}
 .amen span{font-weight:300;font-size:clamp(18px,2.2vw,30px);line-height:1.15;text-transform:uppercase}
-.lb{position:fixed;inset:0;z-index:70;background:rgba(5,8,22,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:max(20px,env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));color:#f3f1ec}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(5,8,22,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:max(20px,env(safe-area-inset-top,0px)) var(--gutr) max(20px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));color:#f3f1ec}
 .lb[hidden]{display:none}
 .lb img{max-width:100%;max-height:calc(100% - 64px);object-fit:contain}
 .lbc{display:flex;justify-content:space-between;gap:16px;align-items:center;width:min(100%,1000px);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
@@ -367,7 +368,7 @@ select option{background:var(--navy);color:#fff}
 input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--accent)}
 .full{grid-column:1/-1}
 .ok{grid-column:1/-1;border:1px solid var(--accent);color:var(--accent);padding:12px 16px;font-size:12px}
-footer{background:var(--navy);color:var(--fg);padding:clamp(56px,9vw,120px) max(20px,env(safe-area-inset-right,0px)) 40px var(--gut);overflow:hidden}
+footer{background:var(--navy);color:var(--fg);padding:clamp(56px,9vw,120px) var(--gutr) 40px var(--gut);overflow:hidden}
 footer .big{font-weight:300;font-size:clamp(28px,5.2vw,76px);letter-spacing:.14em;line-height:1;text-transform:uppercase;white-space:nowrap;margin:0 0 18px;opacity:.95}
 .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:32px 48px;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,64px)}
 .fad{font-style:normal;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--fg)}
@@ -448,8 +449,8 @@ h2.big{letter-spacing:-.025em}
   <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span class="bl"><i></i><i></i><i></i></span><span class="bt" data-i18n="menuL"></span></button>
   <a class="wm" href="#top">KJ Buildings</a>
   <nav>
-    <span class="lg up" role="group" aria-label="Language"><button type="button" data-lang="ko" aria-pressed="true">KO</button> / <button type="button" data-lang="en" aria-pressed="false">EN</button></span>
     <a class="up" href="#inquiry" data-i18n="navContact"></a>
+    <span class="lg up" role="group" aria-label="Language"><button type="button" data-lang="ko" aria-pressed="true">한글</button> / <button type="button" data-lang="en" aria-pressed="false">EN</button></span>
   </nav>
 </header>
 
