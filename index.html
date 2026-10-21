@@ -37,9 +37,11 @@ a{color:inherit}
 /* header */
 .hd{position:fixed;left:0;right:0;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(20px,env(safe-area-inset-right,0px)) 14px var(--gut);color:#fff;mix-blend-mode:difference;pointer-events:none}
 .hd>*{pointer-events:auto}
-.burger{width:40px;height:36px;display:flex;flex-direction:column;justify-content:center;gap:4px}
-.burger i{display:block;height:1px;background:currentColor;width:40px;transition:transform .5s var(--ease)}
-.burger:hover i:first-child{transform:translateX(8px)}
+.burger{height:40px;display:flex;align-items:center;gap:12px;padding:0 4px;color:inherit}
+.burger .bl{display:flex;flex-direction:column;gap:5px;width:22px}
+.burger .bt{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.burger i{display:block;height:1.5px;background:currentColor;width:22px;transition:transform .5s var(--ease)}.burger i:nth-child(2){width:15px}
+.burger:hover i:nth-child(2){transform:translateX(7px)}
 .wm{font-weight:300;letter-spacing:.34em;font-size:15px;text-transform:uppercase;text-decoration:none;margin-right:auto;margin-left:14px;opacity:0;transition:opacity .5s var(--ease)}
 .hd.past .wm{opacity:1}
 .hd nav{display:flex;align-items:center;gap:clamp(14px,3vw,48px)}
@@ -443,7 +445,7 @@ h2.big{letter-spacing:-.025em}
 </style>
 
 <header class="hd" id="hd">
-  <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span class="bl"><i></i><i></i><i></i></span><span class="bt" data-i18n="menuL"></span></button>
   <a class="wm" href="#top">KJ Buildings</a>
   <nav>
     <a class="up hide-s" href="#space" data-i18n="navSpace"></a>
@@ -712,7 +714,7 @@ navSpace:'자세히 보기',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안
  labels:{park:'전용 주차장',emart:'이마트 충주점',b:'중원대로 3424',jw:'중원대로',gw:'국원대로',jy:'중앙로',nb:'인접 건물'},
  pfTitle:'포트폴리오',pfLead:'충주에 있는 저희 건물 세 곳입니다. 지금은 첫 번째 건물만 열어두었어요.',viewModel:'3D 모델 보기',
  soon:'준비 중',soonSub:'자료 수집 후 추가됩니다.',
- inqTitle:'문의하기',writeMail:'메일 쓰기',fAddrL:'ADDRESS',fAddr:'충북 충주시 중원대로 3424',fAddr2:'문화동 467 · 이마트사거리 서쪽 모퉁이',fCta:'문의하기 →',copy:'복사',copied:'복사됨',call:'전화하기',viewPhotos:'사진으로 보기',mfT:'메일로 바로 문의하기',mfName:'이름',mfPhone:'연락처',mfMsg:'문의 내용',mfIntL:'관심 있는 항목',mfUnitL:'관심 호실',mfWant:'원하시는 방법 (복수 선택)',mfView:'현장 방문',mfCall:'전화 상담',mfDoc:'자료 요청',mfAnyUnit:'아직 모르겠어요',mfInts:['임대 문의','매매 문의','사진 · 자료 요청','기타'],mfGmail:'Gmail로 보내기',mfMail:'메일 앱으로 보내기',mfCopy:'내용 복사',mfNote:'버튼을 누르면 작성한 내용이 담긴 새 메일이 열려요. 보내기는 직접 눌러 주세요.',mfPre:function(f,u){return f+'층 '+u+'호 문의드립니다.'},mfSub:'KJ Buildings 문의',mfBody:function(n,p,m,x){return '관심: '+x.i+(x.u?' / '+x.u:'')+'\n희망: '+(x.w.join(', ')||'-')+'\n\n'+m+'\n\n'+(n?'이름: '+n+'\n':'')+(p?'연락처: '+p:'')},mailL:'이메일',inqLead:'전화나 이메일로 편하게 연락 주세요. 건물주가 직접 답해드려요.',
+ inqTitle:'문의하기',menuL:'메뉴',writeMail:'메일 쓰기',fAddrL:'ADDRESS',fAddr:'충북 충주시 중원대로 3424',fAddr2:'문화동 467 · 이마트사거리 서쪽 모퉁이',fCta:'문의하기 →',copy:'복사',copied:'복사됨',call:'전화하기',viewPhotos:'사진으로 보기',mfT:'메일로 바로 문의하기',mfName:'이름',mfPhone:'연락처',mfMsg:'문의 내용',mfIntL:'관심 있는 항목',mfUnitL:'관심 호실',mfWant:'원하시는 방법 (복수 선택)',mfView:'현장 방문',mfCall:'전화 상담',mfDoc:'자료 요청',mfAnyUnit:'아직 모르겠어요',mfInts:['임대 문의','매매 문의','사진 · 자료 요청','기타'],mfGmail:'Gmail로 보내기',mfMail:'메일 앱으로 보내기',mfCopy:'내용 복사',mfNote:'버튼을 누르면 작성한 내용이 담긴 새 메일이 열려요. 보내기는 직접 눌러 주세요.',mfPre:function(f,u){return f+'층 '+u+'호 문의드립니다.'},mfSub:'KJ Buildings 문의',mfBody:function(n,p,m,x){return '관심: '+x.i+(x.u?' / '+x.u:'')+'\n희망: '+(x.w.join(', ')||'-')+'\n\n'+m+'\n\n'+(n?'이름: '+n+'\n':'')+(p?'연락처: '+p:'')},mailL:'이메일',inqLead:'전화나 이메일로 편하게 연락 주세요. 건물주가 직접 답해드려요.',
  fName:'이름 / 회사',fContact:'연락처 (전화 · 카카오톡)',fInterest:'관심 항목',fMsg:'메시지',send:'문의 보내기',
  optLease:'임대 문의: ',optSale:'건물 전체 매각 자료 요청',optTour:'현장 방문 예약',
  okMsg:'데모 화면입니다. 실제로 전송된 내용은 없습니다.',
@@ -772,7 +774,7 @@ navSpace:'Explore',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',mSpace
  labels:{park:'Dedicated parking',emart:'Emart Chungju',b:'3424 Jungwon-daero',jw:'Jungwon-daero',gw:'Gugwon-daero',jy:'Jungang-ro',nb:'Adjacent building'},
  pfTitle:'Portfolio',pfLead:'Three of our buildings in Chungju. Only the first is open for now.',viewModel:'View 3D model',
  soon:'Coming soon',soonSub:'Added once the data is collected.',
- inqTitle:'Get in touch',writeMail:'Write email',fAddrL:'ADDRESS',fAddr:'3424 Jungwon-daero, Chungju, Chungbuk',fAddr2:'467 Munhwa-dong · west corner of the E-Mart intersection',fCta:'Get in touch →',copy:'Copy',copied:'Copied',call:'Call',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfIntL:'I am interested in',mfUnitL:'Unit',mfWant:'How would you like to proceed (select any)',mfView:'Schedule a viewing',mfCall:'Phone call',mfDoc:'Send me details',mfAnyUnit:'Not sure yet',mfInts:['Leasing','Buying the building','Photos and documents','Other'],mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m,x){return 'Interest: '+x.i+(x.u?' / '+x.u:'')+'\nPreferred: '+(x.w.join(', ')||'-')+'\n\n'+m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or write any time. The owner replies personally.',
+ inqTitle:'Get in touch',menuL:'Menu',writeMail:'Write email',fAddrL:'ADDRESS',fAddr:'3424 Jungwon-daero, Chungju, Chungbuk',fAddr2:'467 Munhwa-dong · west corner of the E-Mart intersection',fCta:'Get in touch →',copy:'Copy',copied:'Copied',call:'Call',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfIntL:'I am interested in',mfUnitL:'Unit',mfWant:'How would you like to proceed (select any)',mfView:'Schedule a viewing',mfCall:'Phone call',mfDoc:'Send me details',mfAnyUnit:'Not sure yet',mfInts:['Leasing','Buying the building','Photos and documents','Other'],mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m,x){return 'Interest: '+x.i+(x.u?' / '+x.u:'')+'\nPreferred: '+(x.w.join(', ')||'-')+'\n\n'+m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or write any time. The owner replies personally.',
  fName:'Name / Company',fContact:'Contact (phone or KakaoTalk)',fInterest:'Interested in',fMsg:'Message',send:'Send inquiry',
  optLease:'Lease inquiry: ',optSale:'Whole-building sale package',optTour:'Book a site visit',
  okMsg:'This is a demo. Nothing was actually sent.',
