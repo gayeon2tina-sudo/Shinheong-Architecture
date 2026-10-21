@@ -284,7 +284,7 @@ h2.big{margin:0;font-weight:300;font-size:clamp(34px,7.2vw,100px);line-height:1.
 .views button:hover,.ghost:hover{border-color:var(--accent)}
 .views button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
 .views .sp{flex:1}
-.hint{position:absolute;bottom:60px;left:12px;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;pointer-events:none}
+.hint{position:absolute;bottom:calc(var(--vh,48px) + 20px);left:12px;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;pointer-events:none}
 .panel{background:var(--surface);border-left:1px solid var(--line);padding:26px;min-width:0}
 .kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
 .panel h2{font-weight:300;font-size:30px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.01em;text-transform:uppercase}
@@ -701,7 +701,7 @@ navSpace:'3D로 보기',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안내'
  saleNote:'공개 화면에는 층별 공실 여부만 표시하며, 임차인 정보와 수익 자료는 비공개로 전달합니다.',
  askSale:'매각 자료 요청',
  pinsB:'사진 핀',views:{core:'계단 · 승강기 · 화장실',map:'전체 지도',corner:'코너',front:'정면',west:'동측',rear:'후면',aerial:'위에서'},
- spin:'자동 회전',
+ spin:'자동 회전',reset:'초기화',
  labels:{park:'전용 주차장',emart:'이마트 충주점',b:'중원대로 3424',jw:'중원대로',gw:'국원대로',jy:'중앙로',nb:'인접 건물'},
  pfTitle:'포트폴리오',pfLead:'충주에 있는 저희 건물 세 곳입니다. 지금은 첫 번째 건물만 열어두었어요.',viewModel:'3D 모델 보기',
  soon:'준비 중',soonSub:'자료 수집 후 추가됩니다.',
@@ -761,7 +761,7 @@ navSpace:'View in 3D',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',mSp
  saleNote:'The public view shows only leased or available per floor. Tenant names and income data are shared privately.',
  askSale:'Request sale package',
  pinsB:'Photo pins',views:{core:'Stairs, lift, restrooms',map:'Overview',corner:'Corner',front:'Front',west:'East',rear:'Rear',aerial:'Top'},
- spin:'Auto-rotate',
+ spin:'Auto-rotate',reset:'Reset',
  labels:{park:'Dedicated parking',emart:'Emart Chungju',b:'3424 Jungwon-daero',jw:'Jungwon-daero',gw:'Gugwon-daero',jy:'Jungang-ro',nb:'Adjacent building'},
  pfTitle:'Portfolio',pfLead:'Three of our buildings in Chungju. Only the first is open for now.',viewModel:'View 3D model',
  soon:'Coming soon',soonSub:'Added once the data is collected.',
@@ -825,8 +825,9 @@ function renderInterest(){
 function renderViews(){
   var t=T(),box=document.getElementById('views'),h='';
   ['map','corner','front','rear','aerial','core'].forEach(function(k){h+='<button type="button" data-view="'+k+'" aria-pressed="'+(curView===k)+'">'+t.views[k]+'</button>'});
-  h+='<button type="button" id="pinb" aria-pressed="'+!!window.__pins+'">'+t.pinsB+'</button>';h+='<button type="button" id="expb" aria-pressed="'+exploded+'">'+t.explode+'</button>'+(have().length?'':'<button type="button" id="addph">'+t.addPhotos+'</button>')+'<span class="sp"></span><button type="button" id="spin" aria-pressed="'+autoSpin+'">'+t.spin+'</button>';
+  h+='<button type="button" id="rst">↺ '+t.reset+'</button>';h+='<button type="button" id="pinb" aria-pressed="'+!!window.__pins+'">'+t.pinsB+'</button>';h+='<button type="button" id="expb" aria-pressed="'+exploded+'">'+t.explode+'</button>'+(have().length?'':'<button type="button" id="addph">'+t.addPhotos+'</button>')+'<span class="sp"></span><button type="button" id="spin" aria-pressed="'+autoSpin+'">'+t.spin+'</button>';
   box.innerHTML=h;
+  box.parentNode.style.setProperty('--vh',box.offsetHeight+'px');if(!window.__vhr){window.__vhr=1;addEventListener('resize',function(){var b=document.getElementById('views');if(b)b.parentNode.style.setProperty('--vh',b.offsetHeight+'px')})}
 }
 function renderFacts(){var fe=document.getElementById('facts');if(!fe)return;fe.innerHTML=T().facts.map(function(f){return '<li>'+f+'</li>'}).join('')}
 function applyI18n(){
@@ -850,6 +851,7 @@ function applyI18n(){
 
 /* ---------- three.js scene ---------- */
 var RM=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+window.__pins=true;(function(){var st=document.getElementById('stage');if(st)st.classList.add('pins-on')})();
 var curView='corner',autoSpin=false,labelDefs=[],labelEls=[];
 var canvas=document.getElementById('gl'),stage=document.getElementById('stage');
 var walkers=[],renderer,scene,camera,floors=[],mats={},lineMats=[],plateMeshes=[],edgeMat,lotMat,subj,PHOTOS=(function(){var g=window.JW_PH||[];return [g[0],g[1],g[5],g[6],g[8],g[11]]})(),SLOTS=[
@@ -1033,14 +1035,14 @@ function buildScene(){
       var ld=new THREE.Mesh(new THREE.BoxGeometry(2.6,10*rise,1.2),mats.core);ld.position.set(17.5,y0+5*rise,5.5);sg.add(ld);
       }
       var rl2=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(16.2,y0+.9,1.1),new THREE.Vector3(16.2,y0+10*rise+.9,4.9)]),new THREE.LineBasicMaterial({color:0x7fe3ff}));if(i<3)sg.add(rl2);
-      var ev=new THREE.Mesh(new THREE.BoxGeometry(2.0,h-.4,2.0),mats.elev);ev.position.set(18.7,y0+(h-.4)/2,9.6);sg.add(ev);
-      sg.add(plane(1.2,2.1,mats.elevDoor,18.7,y0+1.05,8.58));
+      var ev=new THREE.Mesh(new THREE.BoxGeometry(2.0,h-.4,2.0),mats.elev);ev.position.set(18.7,y0+(h-.4)/2,7.2);sg.add(ev);
+      sg.add(plane(1.2,2.1,mats.elevDoor,18.7,y0+1.05,6.18));
       if(i===1||i===2){
         var wm=mats.wc;
-        [[3.6,2.2,.08,17.9,7.55],[.08,2.2,1.5,17.9,6.8],[.08,2.2,1.5,16.2,6.8],[.08,2.2,1.5,19.6,6.8]].forEach(function(q){var w2=new THREE.Mesh(new THREE.BoxGeometry(q[0],q[1],q[2]),wm);w2.position.set(q[3],y0+q[1]/2,q[4]);sg.add(w2)});
-        [17.05,18.75].forEach(function(x){var t2=new THREE.Mesh(new THREE.BoxGeometry(.5,.42,.6),mats.elevDoor);t2.position.set(x,y0+.21,7.15);sg.add(t2)});
-        var sgn=new THREE.Mesh(new THREE.PlaneGeometry(1.0,.5),new THREE.MeshBasicMaterial({map:signTex('WC','#0b1029','#7fe3ff',128,64)}));sgn.position.set(17.9,y0+2.45,6.0);sgn.rotation.y=Math.PI;sg.add(sgn);
-        var sgb=sgn.clone();sgb.position.set(17.9,y0+2.45,7.62);sgb.rotation.y=0;sg.add(sgb);
+        [[3.6,2.2,.08,17.9,10.55],[.08,2.2,1.5,16.2,9.8],[.08,2.2,1.5,19.6,9.8]].forEach(function(q){var w2=new THREE.Mesh(new THREE.BoxGeometry(q[0],q[1],q[2]),wm);w2.position.set(q[3],y0+q[1]/2,q[4]);sg.add(w2)});
+        [17.05,18.75].forEach(function(x){var t2=new THREE.Mesh(new THREE.BoxGeometry(.5,.42,.6),mats.elevDoor);t2.position.set(x,y0+.21,10.15);sg.add(t2)});
+        var sgn=new THREE.Mesh(new THREE.PlaneGeometry(1.0,.5),new THREE.MeshBasicMaterial({map:signTex('WC','#0b1029','#7fe3ff',128,64)}));sgn.position.set(17.9,y0+2.45,9.0);sgn.rotation.y=Math.PI;sg.add(sgn);
+        var sgb=sgn.clone();sgb.position.set(17.9,y0+2.45,10.62);sgb.rotation.y=0;sg.add(sgb);
       }
       grp.add(sg);
     })();
@@ -1317,6 +1319,7 @@ document.addEventListener('click',function(e){
   if(b.hasAttribute('data-lang')){lang=b.getAttribute('data-lang');try{localStorage.setItem('jw-lang',lang)}catch(x){}applyI18n();return}
   if(b.hasAttribute('data-mode')){setMode(b.getAttribute('data-mode'));return}
   if(b.hasAttribute('data-view')){setView(b.getAttribute('data-view'));return}
+  if(b.id==='rst'){var ex=document.getElementById('exp');autoSpin=false;if(ex&&ex.checked){ex.checked=false;ex.dispatchEvent(new Event('change'))}window.__pins=true;document.getElementById('stage').classList.add('pins-on');setView('corner');renderViews();return}
   if(b.id==='spin'){autoSpin=!autoSpin;renderViews();return}
   if(b.hasAttribute('data-unit')){selectUnit(b.getAttribute('data-unit'));return}
   if(b.hasAttribute('data-gal')){
@@ -1515,6 +1518,3 @@ if(renderer){
 }
 })();
 </script>
-
-</body>
-</html>
