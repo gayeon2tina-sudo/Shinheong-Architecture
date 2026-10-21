@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070b20'/%3E%3Cpath d='M7 25V5l7 2v5h11v13z' fill='none' stroke='%23c9a66b' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@200;300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap">
 <style>
 :root{
   color-scheme: dark;
@@ -19,8 +19,9 @@
   --accent:#c9a66b; --accent-fg:#14110a; --leased:#5b6178;
   --sc-bg:#0a0f26; --sc-ground:#12172e; --sc-road:#05070f; --sc-block:#252b45; --sc-glass:#e4eeff; --sc-tree:#b49a63; --sc-mark:#3a4160;
   --ease:cubic-bezier(.7,0,.3,1);
-  --display:"Montserrat","Noto Sans KR",system-ui,sans-serif;
-  --body:"Montserrat","Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Manrope","Noto Sans KR",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","Noto Sans KR",ui-monospace,Menlo,monospace;
+  --body:"Manrope","Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:max(20px,env(safe-area-inset-left,0px));
 }
 .ui-light{--bg:#ffffff;--surface:#f3f4f7;--surface2:#e8eaf0;--fg:#070b20;--muted:#5b617a;--line:rgba(7,11,32,.18);--accent:#8a6a2f;--accent-fg:#ffffff;--leased:#a6a9b6}
@@ -134,7 +135,7 @@ a{color:inherit}
 #space{padding-top:clamp(84px,8vw,112px);padding-bottom:clamp(56px,8vw,110px)}
 #space .big{font-size:clamp(26px,3.4vw,46px);margin:18px 0 0}
 #space .split{margin-top:clamp(20px,2.4vw,32px)}
-#space .stage{height:min(76svh,760px)}
+#space .stage{height:auto;min-height:min(76svh,760px)}
 .kicker{display:none}
 .views{gap:8px}
 /* cinematic rail gallery */
@@ -373,6 +374,38 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .mark{width:100%}
 }
 @media (max-width:420px){.mark h1{font-size:26px}.frow{grid-template-columns:62px 1fr 1fr}.panel{padding:18px}.mark h1{letter-spacing:.12em}}
+
+/* ===== v2 refinements ===== */
+h2.big,.big{font-weight:200}
+h2.big{letter-spacing:-.025em}
+.lab b,.up,.amen b,.cc b,.ac small,.hx-copy .by,.hint,.mform label span,.gi figcaption b,.dir small{font-family:var(--mono)}
+.tag{font-weight:200;letter-spacing:-.03em}
+.hx-copy h1{font-family:var(--mono)}
+#prog{position:fixed;left:0;top:0;height:1px;width:100%;background:linear-gradient(90deg,var(--accent),#7fe3ff);transform:scaleX(var(--sp,0));transform-origin:0 50%;z-index:70;pointer-events:none}
+.ico :is(path,circle,rect,line,polyline){stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.9s var(--ease) calc(var(--i,0)*.12s + .3s)}
+[data-r].in .ico :is(path,circle,rect,line,polyline),.in .ico :is(path,circle,rect,line,polyline){stroke-dashoffset:0}
+@media (prefers-reduced-motion:reduce){.ico :is(path,circle,rect,line,polyline){stroke-dashoffset:0!important;transition:none!important}}
+.amen{gap:clamp(16px,2.4vw,32px)}
+.amen div{padding-top:22px;gap:14px;transition:border-color .6s var(--ease)}
+.amen div:hover{border-top-color:var(--accent)}
+.amen .am{width:44px;height:44px;margin-bottom:6px;transition:transform .8s var(--ease)}
+.amen div:hover .am{transform:translateY(-4px)}
+.amen span{font-size:clamp(17px,1.9vw,26px);font-weight:300;letter-spacing:0;text-transform:none}
+.avail2{gap:clamp(16px,2.4vw,32px)}
+.ac{border:1px solid var(--line);padding:clamp(20px,2.4vw,36px);background:linear-gradient(180deg,rgba(207,227,255,.035),transparent 60%);gap:8px;transition:border-color .7s var(--ease),transform .9s var(--ease)}
+.ac:hover{border-color:var(--accent);transform:translateY(-4px)}
+.ac .plan{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:10px}
+.ac .plan svg{display:block;width:100%;height:auto;max-height:190px}
+.ac b{font-size:clamp(48px,6.4vw,92px);font-weight:200;margin:10px 0 8px}
+.ac span{font-size:clamp(15px,1.4vw,18px);font-weight:300;color:var(--muted);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0 0;margin-top:4px}
+.acn{font-size:13px}
+.cc b{display:flex;align-items:center;gap:10px}
+.cc b svg{width:18px;height:18px;flex:none}
+.cc a{font-weight:200;font-size:clamp(24px,3.6vw,52px);letter-spacing:-.01em}
+.use b{font-weight:300}
+.ill svg{width:72%}
+.hx-bg{will-change:background-position}
+.bld{transform:translate3d(calc(var(--mx,0) * 14px),calc(var(--my,0) * 8px),0);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 </style>
 </head>
 <body>
@@ -396,6 +429,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   <a href="#inquiry"><small>05</small><span data-i18n="mContact"></span></a>
 </div>
 
+<div id="prog" aria-hidden="true"></div>
 <main id="top">
 <section class="intro" id="intro" aria-label="Intro">
   <div class="intro-in">
@@ -476,10 +510,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
       </aside>
     </div>
     <div class="amen amen-under">
-      <div data-r style="--i:0"><b>01</b><span data-i18n="aElev"></span></div>
-      <div data-r style="--i:1"><b>02</b><span data-i18n="aStairs"></span></div>
-      <div data-r style="--i:2"><b>03</b><span data-i18n="aPark"></span></div>
-      <div data-r style="--i:3"><b>04</b><span data-i18n="aCorner"></span></div>
+      <div data-r style="--i:0"><svg class="ico am" viewBox="0 0 48 48" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="1"/><path d="M24 6v36"/><path d="M14 21l3-3.5 3 3.5"/><path d="M28 27l3 3.5 3-3.5"/></svg><b>01</b><span data-i18n="aElev"></span></div>
+      <div data-r style="--i:1"><svg class="ico am" viewBox="0 0 48 48" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="11" r="3.2"/><path d="M9 38V24q0-4.5 5-4.5T19 24v14"/><path d="M24 7v34"/><circle cx="34" cy="11" r="3.2"/><path d="M29 38l2.4-15h5.2L39 38z"/></svg><b>02</b><span data-i18n="aStairs"></span></div>
+      <div data-r style="--i:2"><svg class="ico am" viewBox="0 0 48 48" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M19 34V14h7a6 6 0 0 1 0 12h-7"/></svg><b>03</b><span data-i18n="aPark"></span></div>
+      <div data-r style="--i:3"><svg class="ico am" viewBox="0 0 48 48" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 24q20-20 40 0q-20 20-40 0z"/><circle cx="24" cy="24" r="5"/><path d="M24 8v-3M10 12l-2-2M38 12l2-2"/></svg><b>04</b><span data-i18n="aCorner"></span></div>
     </div>
   </div>
 </section>
@@ -489,10 +523,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="lab" data-r><b>2</b><span></span><b class="up" data-i18n="mReach"></b></div>
     <h2 class="big" data-split="reachH"></h2>
     <div class="uses">
-      <div class="use" data-r style="--i:0"><div class="ill"><svg viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M28 34H132M36 34V100M124 34V100M28 100H44M116 100H132"/><path d="M58 34v-6M80 34v-6M102 34v-6"/><path d="M47 52l8-8q3 4 6 0l8 8-4 5-4-2v26H55V55l-4 2z"/><path d="M69 52l8-8q3 4 6 0l8 8-4 5-4-2v26H77V55l-4 2z" opacity=".55"/><path d="M91 52l8-8q3 4 6 0l8 8-4 5-4-2v26H99V55l-4 2z" opacity=".3"/></svg></div><b data-i18n="fit1t"></b><p data-i18n="fit1p"></p></div>
-      <div class="use" data-r style="--i:1"><div class="ill"><svg viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M52 56H100V80Q100 98 76 98Q52 98 52 80Z"/><path d="M100 62H108Q118 62 118 72Q118 82 106 82H99"/><path d="M42 106H112"/><path d="M66 44Q60 36 68 28Q74 22 68 14M84 44Q78 36 86 28Q92 22 86 14"/></svg></div><b data-i18n="fit2t"></b><p data-i18n="fit2p"></p></div>
-      <div class="use" data-r style="--i:2"><div class="ill"><svg viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="46" y="40" width="68" height="44" rx="3"/><rect x="52" y="46" width="56" height="32" rx="1" opacity=".45"/><path d="M36 90H124L118 98H42Z"/><path d="M132 90V52L120 42M114 44L126 38L128 46Z"/><rect x="12" y="80" width="26" height="6"/><rect x="15" y="73" width="22" height="6"/></svg></div><b data-i18n="fit3t"></b><p data-i18n="fit3p"></p></div>
-      <div class="use" data-r style="--i:3"><div class="ill"><svg viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="40" y="30" width="60" height="40" rx="3"/><path d="M70 70V86M56 90H84M24 96H136"/><path d="M70 42V58M62 50H78"/><path d="M118 96V84H132V96"/><path d="M125 84Q118 68 124 60M125 84Q134 70 130 62"/></svg></div><b data-i18n="fit4t"></b><p data-i18n="fit4p"></p></div>
+      <div class="use" data-r style="--i:0"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M28 34H132M36 34V100M124 34V100M28 100H44M116 100H132"/><path d="M58 34v-6M80 34v-6M102 34v-6"/><path d="M47 52l8-8q3 4 6 0l8 8-4 5-4-2v26H55V55l-4 2z"/><path d="M69 52l8-8q3 4 6 0l8 8-4 5-4-2v26H77V55l-4 2z" opacity=".55"/><path d="M91 52l8-8q3 4 6 0l8 8-4 5-4-2v26H99V55l-4 2z" opacity=".3"/></svg></div><b data-i18n="fit1t"></b><p data-i18n="fit1p"></p></div>
+      <div class="use" data-r style="--i:1"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M52 56H100V80Q100 98 76 98Q52 98 52 80Z"/><path d="M100 62H108Q118 62 118 72Q118 82 106 82H99"/><path d="M42 106H112"/><path d="M66 44Q60 36 68 28Q74 22 68 14M84 44Q78 36 86 28Q92 22 86 14"/></svg></div><b data-i18n="fit2t"></b><p data-i18n="fit2p"></p></div>
+      <div class="use" data-r style="--i:2"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="46" y="40" width="68" height="44" rx="3"/><rect x="52" y="46" width="56" height="32" rx="1" opacity=".45"/><path d="M36 90H124L118 98H42Z"/><path d="M132 90V52L120 42M114 44L126 38L128 46Z"/><rect x="12" y="80" width="26" height="6"/><rect x="15" y="73" width="22" height="6"/></svg></div><b data-i18n="fit3t"></b><p data-i18n="fit3p"></p></div>
+      <div class="use" data-r style="--i:3"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="40" y="30" width="60" height="40" rx="3"/><path d="M70 70V86M56 90H84M24 96H136"/><path d="M70 42V58M62 50H78"/><path d="M118 96V84H132V96"/><path d="M125 84Q118 68 124 60M125 84Q134 70 130 62"/></svg></div><b data-i18n="fit4t"></b><p data-i18n="fit4p"></p></div>
     </div>
   </div>
 </section>
@@ -541,13 +575,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true"><img id="lbimg" alt=""><div class="lbc"><span id="lbcap"></span><span class="lbb"><button type="button" data-lb="prev" aria-label="Previous">&larr;</button><button type="button" data-lb="next" aria-label="Next">&rarr;</button><button type="button" data-lb="close" data-i18n="lbClose"></button></span></div></div>
 
-<section class="sec ui-light" id="info">
+<section class="sec" id="info">
   <div class="in-w">
     <div class="lab" data-r><b>4</b><span></span><b class="up" data-i18n="mInfo"></b></div>
     <h2 class="big" data-split="infoH"></h2>
     <div class="avail2">
-      <div class="ac" data-r style="--i:0"><small data-i18n="ac1l"></small><b data-i18n="ac1a"></b><span data-i18n="ac1d"></span><span data-i18n="ac1r"></span></div>
-      <div class="ac" data-r style="--i:1"><small data-i18n="ac2l"></small><b data-i18n="ac2a"></b><span data-i18n="ac2d"></span><span data-i18n="ac2r"></span></div>
+      <div class="ac" data-r style="--i:0"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="10" y="8" width="180" height="96" fill="var(--accent)" fill-opacity=".1" stroke="none"/><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/><text x="100" y="127" text-anchor="middle" fill="var(--fg)" fill-opacity=".5" font-family="var(--mono)" font-size="7" letter-spacing="1.4" stroke="none">20 M</text></svg></div><small data-i18n="ac1l"></small><b data-i18n="ac1a"></b><span data-i18n="ac1d"></span><span data-i18n="ac1r"></span></div>
+      <div class="ac" data-r style="--i:1"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="100" y="8" width="90" height="96" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)"/><path d="M100 8v96" stroke="var(--accent)"/><text x="145" y="60" text-anchor="middle" fill="var(--accent)" font-family="var(--mono)" font-size="9" letter-spacing="1.5" stroke="none">4-2</text><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/><text x="100" y="127" text-anchor="middle" fill="var(--fg)" fill-opacity=".5" font-family="var(--mono)" font-size="7" letter-spacing="1.4" stroke="none">20 M</text></svg></div><small data-i18n="ac2l"></small><b data-i18n="ac2a"></b><span data-i18n="ac2d"></span><span data-i18n="ac2r"></span></div>
     </div>
     <p class="acn" data-r data-i18n="acNote"></p>
     <div class="cta" data-r>
@@ -564,9 +598,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <h2 class="big" data-split="inqH"></h2>
     <p class="inq-lead" data-r data-i18n="inqLead"></p>
     <div class="contacts" data-r>
-      <div class="cc"><b>창상주</b><a href="tel:01088459350">010-8845-9350</a><button type="button" data-copy="010-8845-9350" data-i18n="copy"></button></div>
-      <div class="cc"><b>지성국</b><a href="tel:01050538989">010-5053-8989</a><button type="button" data-copy="010-5053-8989" data-i18n="copy"></button></div>
-      <div class="cc"><b data-i18n="mailL"></b><a href="mailto:trunk11@nate.com">trunk11@nate.com</a><button type="button" data-copy="trunk11@nate.com" data-i18n="copy"></button></div>
+      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>창상주</b><a href="tel:01088459350">010-8845-9350</a><button type="button" data-copy="010-8845-9350" data-i18n="copy"></button></div>
+      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>지성국</b><a href="tel:01050538989">010-5053-8989</a><button type="button" data-copy="010-5053-8989" data-i18n="copy"></button></div>
+      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg><span data-i18n="mailL"></span></b><a href="mailto:trunk11@nate.com">trunk11@nate.com</a><button type="button" data-copy="trunk11@nate.com" data-i18n="copy"></button></div>
     </div>
     <form class="mform" id="mform" data-r novalidate onsubmit="return false">
       <h3 data-i18n="mfT"></h3>
@@ -600,7 +634,7 @@ ko:{
  cV:'이마트 하루 방문객',cP:'건물 앞을 지나는 비율',cS:'간판을 눈여겨보는 비율',cOut:'하루 노출 (명)',cOutM:'한 달 노출 (명)',
  cHint:'계산식: 방문객 × 건물 앞을 지나는 비율 × 간판을 보는 비율. 실제 유동인구는 소상공인 상권정보시스템 수치로 대체할 예정입니다.',
  fit1t:'소매 · 패션',fit1p:'진열이 돋보이는 대로변 매장',
- fit2t:'카페 · 디저트',fit2p:'창가에서 이마트와 사거리가 보이는 자리',
+ fit2t:'카페 · 디저트',fit2p:'창가에서 사거리가 내려다보이는 자리',
  fit3t:'스터디카페 · 학원',fit3p:'엘리베이터로 편하게, 조용히 오래 머무는 공간',
  fit4t:'사무실 · 병원',fit4p:'정남향이라 낮에 밝은 한 층',
  srcT:'출처',gAll:'전체',gExt:'외관',g2:'2층',g3:'3층',g4:'4층',gView:'전망',
@@ -609,10 +643,10 @@ ko:{
  dirT:'현재 입주 업체',dirNote:'1층 안내판을 기준으로 했어요. 입주 현황은 바뀔 수 있습니다.',
  aElev:'엘리베이터',aStairs:'층마다 화장실 비치',aPark:'건물 앞 전용 주차',aCorner:'대로변 홍보 효과',
  ex:'열기',lbClose:'닫기',
-navSpace:'공간 선택',navContact:'문의',mIdea:'컨셉',mInfo:'정보',mSpace:'공간 선택',mPort:'포트폴리오',mContact:'문의',
+navSpace:'공간 선택',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안내',mSpace:'공간 선택',mPort:'포트폴리오',mContact:'문의',
  tagA:'충주의 중심,',tagB:'무엇이든 담는 고급 복합 건물',
  ideaH:'충주의 중심,|무엇이든 담을 수 있는|준비된 건물입니다.',ideaP:'이마트 맞은편 사거리 모퉁이에 엘리베이터와 주차까지 갖췄어요. 카페도 사무실도 스터디카페도 편하게 시작하세요.',
- infoH:'지금 입주 가능한 곳',ac1l:'2층 · 한 층 통째로',ac1a:'60평',ac1d:'보증금 3,000만원',ac1r:'월세 300만원',ac2l:'4층 · 한 칸',ac2a:'15평',ac2d:'보증금 2,000만원',ac2r:'월세 200만원',acNote:'두 곳 모두 권리금 없이, 건물주와 직접 이야기합니다.',
+ infoH:'지금 입주 가능한 곳',ac1l:'2층 · 한 층 전체',ac1a:'60평',ac1d:'보증금 3,000만원',ac1r:'월세 300만원',ac2l:'4층 · 2호',ac2a:'15평',ac2d:'보증금 2,000만원',ac2r:'월세 200만원',acNote:'두 곳 모두 권리금 없이, 건물주와 직접 이야기합니다.',
  spaceH:'3D로 먼저|둘러보세요',pfH:'포트폴리오|3동',inqH:'문의하기',
  uFloors:'층',uUnits:'호',sFloors:'지상 층수',sUnits:'전체 호실 (층당 2호)',sArea:'4층 2호 전용면적 (평: 15.0)',uRent:'만원 / 월',sRent:'4층 2호 월세 · 보증금 2,000만원',rentNum:'200',
  r1t:'길 건너가 이마트',r1p:'사거리 모퉁이라 어느 방향에서 오셔도 간판이 보여요. 건물 앞에는 전용 주차 공간도 있습니다.',
@@ -624,7 +658,7 @@ navSpace:'공간 선택',navContact:'문의',mIdea:'컨셉',mInfo:'정보',mSpac
  ctaLease:'비어 있는 4층 보기',ctaSale:'건물 매입 상담',
  facts:['이마트 맞은편 코너','건물 앞 전용 주차','엘리베이터와 층마다 화장실','4층 2호 바로 입주'],
  mapLink:'네이버 지도에서 보기',mapNote:'주변 도로와 건물은 오픈스트리트맵 데이터이며, 건물 위치는 이마트사거리 서측 코너로 지정한 위치입니다. 지적도로 확정 예정.',addPhotos:'사진 추가',close:'닫기',prev:'이전',next:'다음',
- hint:'드래그: 회전 · Ctrl/⌘+휠: 확대 · 층 클릭: 선택',
+ hint:'드래그로 회전 · Ctrl/⌘+휠로 확대 · 층을 눌러 선택',
  kicker:'건물 A · 포트폴리오 3동 중',bTitle:'중원대로 3424',bSub:'충주시 문화동 467 · 이마트사거리 코너',
  lease:'임대',sale:'매각',explode:'층별 분리해서 보기',
  floorName:{1:'근린생활 상가',2:'사무 · 서비스',3:'사무 · 서비스',4:'사무 · 클리닉 · 스튜디오'},
@@ -653,27 +687,27 @@ navSpace:'공간 선택',navContact:'문의',mIdea:'컨셉',mInfo:'정보',mSpac
 en:{
  tag:'Chungju · Commercial Real Estate',mockBadge:'Concept mock',
   galH:'See it|before you visit',mGal:'Gallery',
- mReach:'Uses',fitH:'What fits here',reachH:'Whatever you need,|it fits.',reachP:'It sits right where people heading to Emart look.',
+ mReach:'Uses',fitH:'What fits here',reachH:'Made for whatever|you need.',reachP:'It sits right where people heading to Emart look.',
  rf1n:'619',rf1:'free parking spaces at Emart, across the road',rf2n:'Chungju centre',rf2:'On the old city hall site, now Emart, in the middle of town',rf3n:'Parking out front',rf3:'Dedicated spaces right on the main road',mapAlt:'Where our building sits relative to Emart',mapR:'Jungwon-daero',mapA:'Our building',mapY:'Dedicated parking',mapB:'Emart',mapP:'619 free spaces',
  trendT:'The neighborhood has been shrinking slowly',trendP:'Munhwa-dong fell from 9,348 people in 2022 to 8,417 in 2026, about 10%. So this spot is less about regulars next door and more about people passing on the road.',
  calcT:'Daily exposure calculator',calcP:'The sliders are assumptions. Replace them with real figures, such as Emart visitor counts, when you have them.',
  cV:'Emart visitors per day',cP:'Share who pass our frontage',cS:'Share who notice the signage',cOut:'Daily exposure (people)',cOutM:'Monthly exposure (people)',
  cHint:'Formula: visitors x share passing the frontage x share noticing signage. Real footfall will replace this with figures from the small business district system (sg.sbiz.or.kr).',
- fit1t:'Retail and fashion',fit1p:'A main-road shopfront that shows off the display.',
- fit2t:'Cafe and dessert',fit2p:'A window seat looking over Emart and the junction.',
- fit3t:'Study cafe and academy',fit3p:'Reach it by elevator, stay as long as you like.',
- fit4t:'Office and clinic',fit4p:'A bright south-facing floor.',
+ fit1t:'Retail & fashion',fit1p:'A main-road shopfront that sets the display apart',
+ fit2t:'Café & dessert',fit2p:'A window seat above the junction',
+ fit3t:'Study café & academy',fit3p:'Step out of the elevator into a quiet, settled space',
+ fit4t:'Office & clinic',fit4p:'A south-facing floor, bright all day',
  srcT:'Sources',gAll:'All',gExt:'Exterior',g2:'2F',g3:'3F',g4:'4F',gView:'Views',
  
  cap0:'The building from the junction',cap1:'Inside unit 4-2',cap2:'Shopfronts and signage',cap3:'Third-floor office, full-height glass',cap4:'The lobby directory',cap5:'Emart across the road, from a window',cap6:'Inside a third-floor office',cap7:'A unit entrance',cap8:'The whole second floor, 198 ㎡',cap9:'Wood panels and a mirror wall',cap10:'Brick wall and tall glass',cap11:'Emart from a second-floor window',g2T:'Second floor, one open 198 ㎡ plate',
  dirT:'Current occupants',dirNote:'Taken from the lobby directory. Occupancy changes over time.',
- aElev:'Elevator',aStairs:'A restroom on every floor',aPark:'Dedicated parking out front',aCorner:'Main-road visibility',
+ aElev:'Elevator',aStairs:'A restroom on every floor',aPark:'Parking out front',aCorner:'Main-road exposure',
  ex:'Open',lbClose:'Close',
-navSpace:'Select space',navContact:'Contact',mIdea:'Idea',mInfo:'Information',mSpace:'Select space',mPort:'Portfolio',mContact:'Contact',
- tagA:'The heart of Chungju,',tagB:'a versatile, luxury multi-use building',
+navSpace:'Select space',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',mSpace:'Select space',mPort:'Portfolio',mContact:'Contact',
+ tagA:'The heart of Chungju,',tagB:'a versatile, luxury multi‑use building',
  ideaH:'The heart of Chungju,|ready for|whatever you build.',ideaP:'Across from Emart, on the corner, with an elevator and parking. A cafe, an office or a study space all fit.',
- infoH:'Open right now',ac1l:'2nd floor · the whole plate',ac1a:'198 ㎡',ac1d:'Deposit 30M KRW',ac1r:'Rent 3M KRW a month',ac2l:'4th floor · one unit',ac2a:'49.5 ㎡',ac2d:'Deposit 20M KRW',ac2r:'Rent 2M KRW a month',acNote:'No key money on either, and you deal with the owner directly.',
- spaceH:'Take a look|around first',pfH:'Three|buildings',inqH:'Get in touch',
+ infoH:'Available now',ac1l:'2F · The whole floor',ac1a:'198 ㎡',ac1d:'Deposit ₩30M',ac1r:'₩3M / month',ac2l:'4F · Unit 2',ac2a:'49.5 ㎡',ac2d:'Deposit ₩20M',ac2r:'₩2M / month',acNote:'No key money on either. You deal with the owner directly.',
+ spaceH:'Walk the building|in 3D first',pfH:'Three|buildings',inqH:'Get in touch',
  uFloors:'F',uUnits:'units',sFloors:'Floors above ground',sUnits:'Units in total (2 per floor)',sArea:'Unit 4-2 net area (49.5 ㎡)',uRent:'M KRW / mo',sRent:'Unit 4-2 rent · deposit 20M KRW',rentNum:'2.0',
  r1t:'Emart is across the road',r1p:'On the junction corner, the signage reads from every direction. There is dedicated parking right in front.',
  r2t:'Almost any trade',r2p:'Cafe, shop, office or study space. There is an elevator, and a restroom on every floor.',
@@ -681,7 +715,7 @@ navSpace:'Select space',navContact:'Contact',mIdea:'Idea',mInfo:'Information',mS
 
  heroTitle:'The heart of Chungju, one building at a time.',
  heroSub:'Walk around the corner building at Emart intersection in 3D, then check floor-by-floor leasing or the whole-building sale.',
- ctaLease:'See the open unit',ctaSale:'Ask about buying',
+ ctaLease:'See the open 4F unit',ctaSale:'Ask about buying',
  facts:['Corner across from Emart','Dedicated parking out front','Elevator and a restroom on every floor','Unit 4-2 ready now'],
  mapLink:'Open in Naver Map',mapNote:'Roads and neighbouring buildings are OpenStreetMap data. The building sits on the west corner of the Emart junction as placed by the owner; it will be fixed with the cadastral map.',addPhotos:'Add photos',close:'Close',prev:'Previous',next:'Next',
  hint:'Drag to orbit · Ctrl/⌘ + scroll to zoom · Click a floor',
@@ -704,7 +738,7 @@ navSpace:'Select space',navContact:'Contact',mIdea:'Idea',mInfo:'Information',mS
  labels:{park:'Dedicated parking',emart:'Emart Chungju',b:'3424 Jungwon-daero',jw:'Jungwon-daero',gw:'Gugwon-daero',jy:'Jungang-ro',nb:'Adjacent building'},
  pfTitle:'Portfolio',pfLead:'Three of our buildings in Chungju. Only the first is open for now.',viewModel:'View 3D model',
  soon:'Coming soon',soonSub:'Added once the data is collected.',
- inqTitle:'Get in touch',copy:'Copy',copied:'Copied',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m){return m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or email any time. The owner will answer you directly.',
+ inqTitle:'Get in touch',copy:'Copy',copied:'Copied',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m){return m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or write any time. The owner replies personally.',
  fName:'Name / Company',fContact:'Contact (phone or KakaoTalk)',fInterest:'Interested in',fMsg:'Message',send:'Send inquiry',
  optLease:'Lease inquiry: ',optSale:'Whole-building sale package',optTour:'Book a site visit',
  okMsg:'This is a demo. Nothing was actually sent.',
@@ -1252,6 +1286,18 @@ document.addEventListener('click',function(e){
   c.addEventListener('click',function(){var bd=TO+'\n'+T().mfSub+'\n\n'+upd(),o=c.textContent,done=function(){c.textContent=T().copied;setTimeout(function(){c.textContent=T().mfCopy},1400)};
     var fb=function(){var x=document.createElement('textarea');x.value=bd;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(x);done()};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(bd).then(done,fb)}else fb()});
+})();
+
+/* ---------- motion: icon draw-on, hero parallax, scroll progress ---------- */
+(function(){
+  document.querySelectorAll('.ico :is(path,circle,rect,line,polyline)').forEach(function(n){n.setAttribute('pathLength','1')});
+  var bar=document.getElementById('prog'),intro=document.getElementById('intro'),mx=0,my=0,tick=false;
+  function sp(){var h=document.documentElement.scrollHeight-innerHeight;if(bar)bar.style.setProperty('--sp',h>0?Math.min(1,scrollY/h).toFixed(4):0);tick=false}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(sp)}},{passive:true});sp();
+  if(intro&&!RM&&matchMedia('(pointer:fine)').matches){
+    intro.addEventListener('mousemove',function(e){var r=intro.getBoundingClientRect();mx=(e.clientX/r.width-.5)*2;my=(e.clientY/r.height-.5)*2;
+      intro.style.setProperty('--mx',mx.toFixed(3));intro.style.setProperty('--my',my.toFixed(3))});
+  }
 })();
 document.getElementById('exp').addEventListener('change',function(e){
   exploded=e.target.checked;renderViews();refreshLook();
