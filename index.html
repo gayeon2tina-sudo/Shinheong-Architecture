@@ -53,14 +53,25 @@ a{color:inherit}
 .menu a small{font-size:11px;letter-spacing:.1em;color:var(--muted);min-width:2.2em;font-weight:500}
 .mclose{position:absolute;top:14px;right:max(20px,env(safe-area-inset-right,0px));min-height:36px;padding:8px 0}
 /* intro */
-.intro{position:relative;height:260svh;background:#fff;--p:0}
-.intro-in{position:sticky;top:0;height:100svh;overflow:hidden;background:#fff}
-.media{position:absolute;inset:0;clip-path:inset(calc((1 - var(--p)) * 30svh) 0 0 0);background:linear-gradient(180deg,#2a3f78 0%,#16224a 45%,#070b20 100%)}
-.media .stars{position:absolute;inset:0;background:radial-gradient(1px 1px at 20% 18%,#fff8 50%,transparent),radial-gradient(1px 1px at 72% 12%,#fff8 50%,transparent),radial-gradient(1px 1px at 88% 30%,#fff6 50%,transparent),radial-gradient(1px 1px at 40% 8%,#fff6 50%,transparent)}
-.bld{position:absolute;left:50%;bottom:0;width:min(78vw,960px,calc(50svh * 1.2));height:auto;transform:translateX(-50%) scale(calc(1 + var(--p) * .18));transform-origin:50% 100%}
-.blk{position:absolute;bottom:0;background:
-  repeating-linear-gradient(90deg,rgba(214,178,112,.95) 0 2px,#161c3c 2px 11px),#161c3c;box-shadow:0 0 60px rgba(214,178,112,.18) inset,0 0 80px rgba(214,178,112,.12);
-  -webkit-mask:repeating-linear-gradient(180deg,#000 0 22px,rgba(0,0,0,.55) 22px 30px);mask:repeating-linear-gradient(180deg,#000 0 22px,rgba(0,0,0,.55) 22px 30px)}
+.intro{position:relative;height:100svh;min-height:640px;background:var(--navy);overflow:hidden;--p:0}
+.intro-in{position:relative;height:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:clamp(16px,4vw,72px);padding:96px var(--gut) 72px}
+.hx-bg{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(55% 70% at 74% 58%,rgba(201,166,107,.17),transparent 70%),radial-gradient(40% 50% at 20% 0%,rgba(127,227,255,.07),transparent 70%),
+  linear-gradient(rgba(207,227,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(207,227,255,.045) 1px,transparent 1px);
+  background-size:auto,auto,56px 56px,56px 56px;
+  -webkit-mask:linear-gradient(180deg,#000 55%,transparent);mask:linear-gradient(180deg,#000 55%,transparent)}
+.hx-copy{position:relative;z-index:2;min-width:0}
+.hx-copy .by{font-size:11px;letter-spacing:.28em;color:var(--accent);font-weight:500;margin:0 0 14px}
+.hx-copy h1{margin:0 0 clamp(24px,4vw,48px);font-weight:300;font-size:13px;letter-spacing:.5em;text-transform:uppercase;color:rgba(243,241,236,.7)}
+.tag{margin:0;color:#fff;font-size:clamp(30px,4.6vw,72px);letter-spacing:-.015em;font-weight:300;line-height:1.12;word-break:keep-all}
+.tag span:last-child{color:var(--accent)}
+.hx-cta .btn{text-decoration:none}
+.hx-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(28px,4vw,56px)}
+.bld{position:relative;z-index:1;width:100%;max-height:100%;align-self:center}
+.hint{position:absolute;left:var(--gut);bottom:26px;display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);text-decoration:none;z-index:2}
+.hint i{display:block;width:1px;height:38px;background:linear-gradient(var(--accent),transparent);animation:hint 2.4s var(--ease) infinite;transform-origin:0 0}
+@keyframes hint{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media (max-width:860px){.intro-in{grid-template-columns:1fr;align-content:center;gap:24px;padding:84px var(--gut) 64px}.tag{font-size:clamp(28px,8.4vw,46px)}.bld{width:min(100%,520px);justify-self:center}.hint{display:none}}
 .bld .d{stroke-dasharray:1;stroke-dashoffset:1;animation:hdraw 2.2s var(--ease) forwards}
 .bld .g{animation-delay:.3s}.bld .g2{animation-delay:.6s}
 @keyframes hdraw{to{stroke-dashoffset:0}}
@@ -71,7 +82,6 @@ a{color:inherit}
 @keyframes htr{0%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-1;opacity:1}}
 @media (prefers-reduced-motion:reduce){.bld .d{animation:none;stroke-dashoffset:0}.bld .trace{display:none}}
 .bld svg{display:block;width:100%;height:auto;}
-.b1{left:0;width:26%;height:46%}.b2{left:26%;width:34%;height:100%}.b3{left:60%;width:40%;height:62%}
 .ground{position:absolute;left:0;right:0;bottom:0;height:14%;background:linear-gradient(180deg,transparent,#070b20 70%)}
 .mark{position:absolute;left:0;bottom:calc(70svh - 44px);background:#fff;color:var(--navy);padding:14px 28px 8px var(--gut);display:flex;align-items:flex-end;gap:28px;max-width:100%;transform:translateY(calc(var(--p) * -30svh));opacity:calc(1 - var(--p) * 3);z-index:3}
 .mark .by{font-size:10px;letter-spacing:.18em;color:var(--accent);margin:0 0 6px 4px;font-weight:500}
@@ -79,7 +89,6 @@ a{color:inherit}
 .mark .cv{flex:0 0 22px;margin-bottom:14px;width:22px;height:22px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
 .mark .cv svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:1.6;animation:arrow 2s var(--ease) infinite}
 @keyframes arrow{0%,100%{transform:translateY(-2px)}50%{transform:translateY(2px)}}
-.tag{position:absolute;left:0;right:0;top:calc(30svh + 64px);z-index:3;color:#fff;font-size:clamp(23px,5.6vw,84px);letter-spacing:-.01em;font-weight:300;line-height:1.14;padding:0 var(--gut);word-break:keep-all;text-shadow:0 2px 24px rgba(7,11,32,.55);opacity:calc(1 - var(--p) * 1.8);transform:translateY(calc(var(--p) * -40px))}
 .scene-line{display:none;position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.35);transform:scaleX(calc(var(--p)));transform-origin:0 50%;z-index:2}
 /* reveals */
 .ln{display:block;overflow:hidden;padding-bottom:.08em}
@@ -92,7 +101,7 @@ a{color:inherit}
 .mask{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease)}
 .mask.in{clip-path:inset(0)}
 @media (prefers-reduced-motion: reduce){
-  .ln>span,[data-r],.hr,.mask,.menu,.burger i,.media,.mark .cv svg{transition:none!important;animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+  .ln>span,[data-r],.hr,.mask,.menu,.burger i,.hint i{transition:none!important;animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
   .menu{display:none}.menu.open{display:flex}
 }
 
@@ -390,9 +399,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <main id="top">
 <section class="intro" id="intro" aria-label="Intro">
   <div class="intro-in">
-    <div class="media">
-      <div class="stars"></div>
-      <div class="bld" aria-hidden="true"><svg viewBox="0 0 240 200" preserveAspectRatio="xMidYMax meet">
+    <div class="hx-bg" aria-hidden="true"></div>
+    <div class="hx-copy">
+      <div class="by up">신흥건설 · Sinheong Construction</div>
+      <h1>KJ Buildings</h1>
+      <p class="tag"><span data-i18n="tagA"></span><br><span data-i18n="tagB"></span></p>
+      <div class="hx-cta"><a class="btn" href="#space" data-i18n="mSpace"></a><a class="btn alt" href="#inquiry" data-i18n="mContact"></a></div>
+    </div>
+    <div class="bld" aria-hidden="true"><svg viewBox="0 0 240 200" preserveAspectRatio="xMidYMax meet">
 <defs>
 <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fe3ff" stop-opacity=".22"/><stop offset="1" stop-color="#3a5fb0" stop-opacity=".04"/></linearGradient>
 <linearGradient id="hgl" x1="0" x2="1"><stop offset="0" stop-color="#e0bb74" stop-opacity="0"/><stop offset=".5" stop-color="#e0bb74"/><stop offset="1" stop-color="#e0bb74" stop-opacity="0"/></linearGradient>
@@ -428,11 +442,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <text transform="translate(6 72) rotate(-90)" text-anchor="middle">14.4 M</text>
 <text x="222" y="42" fill="#e0bb74" fill-opacity=".9">4F</text><text x="222" y="75" fill-opacity=".6">3F</text><text x="222" y="109" fill="#7fe3ff" fill-opacity=".9">2F</text><text x="222" y="145" fill-opacity=".6">1F</text>
 </g></svg></div>
-<div class="ground"></div>
-      <div class="scene-line"></div>
-    </div>
-    <div class="mark"><div><div class="by up">신흥건설 · Sinheong Construction</div><h1>KJ Buildings</h1></div><a class="cv" href="#space" aria-label="Scroll"><svg viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></a></div>
-    <div class="tag"><span data-i18n="tagA"></span><br><span data-i18n="tagB"></span></div>
+    <a class="hint" href="#space" aria-label="Scroll"><i></i><span>Scroll</span></a>
   </div>
 </section>
 
