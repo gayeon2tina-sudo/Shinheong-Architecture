@@ -406,6 +406,18 @@ h2.big{letter-spacing:-.025em}
 .ill svg{width:72%}
 .hx-bg{will-change:background-position}
 .bld{transform:translate3d(calc(var(--mx,0) * 14px),calc(var(--my,0) * 8px),0);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+
+/* contacts v3: two phone cards side by side, email full width */
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,28px);border-bottom:0}
+.contacts .cc{display:flex;flex-direction:column;align-items:flex-start;gap:14px;border:1px solid var(--line);padding:clamp(20px,2.6vw,36px);background:linear-gradient(180deg,rgba(207,227,255,.035),transparent 60%);transition:border-color .7s var(--ease),transform .9s var(--ease)}
+.contacts .cc:hover{border-color:var(--accent);transform:translateY(-3px)}
+.contacts .cc a{font-size:clamp(26px,3.4vw,46px);line-height:1.1;margin:6px 0 8px}
+.contacts .cc:last-child{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;column-gap:24px}
+.contacts .cc:last-child a{font-size:clamp(22px,3vw,40px);margin:0}
+.cc-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.cc-act a.pill{display:inline-flex;align-items:center;font-size:12px;letter-spacing:.08em;margin:0;color:var(--accent-fg);background:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:8px 20px;text-decoration:none;font-weight:500}
+.cc-act a.pill:hover{color:var(--accent-fg);opacity:.85}
+@media (max-width:640px){.contacts{grid-template-columns:1fr}.contacts .cc:last-child{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -457,23 +469,21 @@ h2.big{letter-spacing:-.025em}
 <line class="d" pathLength="1" x1="62" y1="17" x2="62" y2="138" stroke="#cfe3ff" stroke-width=".7"/>
 <polyline class="d" pathLength="1" points="62,36 220,36 220,138" stroke="#cfe3ff" stroke-width=".8"/>
 <rect class="d " pathLength="1" x="31" y="14" width="9" height="116" stroke="#7fe3ff" stroke-width=".7" fill="#7fe3ff" fill-opacity=".1"/>
-<rect class="d g " pathLength="1" x="143" y="150" width="42" height="30" stroke="#e0bb74" stroke-width=".9" fill="#e0bb74" fill-opacity=".06"/>
+<rect class="d g" pathLength="1" x="63" y="152" width="26" height="28" stroke="#e0bb74" stroke-width=".9" fill="#e0bb74" fill-opacity=".06"/><rect class="d g" pathLength="1" x="119" y="152" width="26" height="28" stroke="#e0bb74" stroke-width=".9" fill="#e0bb74" fill-opacity=".06"/><rect class="d g" pathLength="1" x="175" y="152" width="26" height="28" stroke="#e0bb74" stroke-width=".9" fill="#e0bb74" fill-opacity=".06"/>
 </g>
 
 <line class="d" pathLength="1" x1="77.8" y1="36" x2="77.8" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="93.6" y1="36" x2="93.6" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="109.4" y1="36" x2="109.4" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="125.2" y1="36" x2="125.2" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="141.0" y1="36" x2="141.0" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="156.8" y1="36" x2="156.8" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="172.60000000000002" y1="36" x2="172.60000000000002" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="188.4" y1="36" x2="188.4" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d" pathLength="1" x1="204.20000000000002" y1="36" x2="204.20000000000002" y2="138" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.35" /><line class="d g" pathLength="1" x1="62" y1="36" x2="220" y2="36" stroke="#e0bb74" stroke-width="1.1" stroke-opacity="1" /><line class="d" pathLength="1" x1="62" y1="68" x2="220" y2="68" stroke="#cfe3ff" stroke-width="0.8" stroke-opacity="0.9" /><line class="d g2" pathLength="1" x1="20" y1="102" x2="220" y2="102" stroke="#7fe3ff" stroke-width="0.9" stroke-opacity="0.95" /><line class="d g" pathLength="1" x1="20" y1="138" x2="220" y2="138" stroke="#e0bb74" stroke-width="1.1" stroke-opacity="1" /><line class="d" pathLength="1" x1="20" y1="147" x2="220" y2="147" stroke="#cfe3ff" stroke-width="0.4" stroke-opacity="0.5" />
-<polyline class="d" pathLength="1" points="20,138 20,180 220,180 220,138" stroke="#cfe3ff" stroke-width=".7"/><line class="d" pathLength="1" x1="164" y1="150" x2="164" y2="180" stroke="#e0bb74" stroke-width=".5" stroke-opacity=".8"/>
-<line class="d" pathLength="1" x1="40" y1="147" x2="40" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" /><line class="d" pathLength="1" x1="64" y1="147" x2="64" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" /><line class="d" pathLength="1" x1="88" y1="147" x2="88" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" /><line class="d" pathLength="1" x1="112" y1="147" x2="112" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" /><line class="d" pathLength="1" x1="128" y1="147" x2="128" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" /><line class="d" pathLength="1" x1="198" y1="147" x2="198" y2="180" stroke="#cfe3ff" stroke-width="0.3" stroke-opacity="0.4" />
+<polyline class="d" pathLength="1" points="20,138 20,180 220,180 220,138" stroke="#cfe3ff" stroke-width=".7"/>
+
 <line class="d" pathLength="1" x1="0" y1="180" x2="240" y2="180" stroke="url(#hgl)" stroke-width=".8"/>
-<line x1="20" y1="185" x2="220" y2="185" stroke="#cfe3ff" stroke-width=".3" stroke-opacity=".5"/>
-<path d="M20 182v6M220 182v6" stroke="#cfe3ff" stroke-width=".3" stroke-opacity=".5"/>
-<line x1="10" y1="6" x2="10" y2="138" stroke="#cfe3ff" stroke-width=".3" stroke-opacity=".5"/>
-<path d="M7 6h6M7 138h6" stroke="#cfe3ff" stroke-width=".3" stroke-opacity=".5"/>
+
+
+
+
 </g>
 <path class="trace" pathLength="1" d="M20 138V6L62 17V36H220V138Z" stroke="#fff3d6" stroke-width="1.4" fill="none" filter="url(#hglow)" style="opacity:0"/><g class="panes"><rect class="pn b" x="63.2" y="37.2" width="13.4" height="29.6"/><rect class="pn b" x="79.0" y="37.2" width="13.4" height="29.6"/><rect class="pn on a" x="94.8" y="37.2" width="13.4" height="29.6"/><rect class="pn a" x="110.6" y="37.2" width="13.4" height="29.6"/><rect class="pn a" x="126.4" y="37.2" width="13.4" height="29.6"/><rect class="pn on a" x="142.2" y="37.2" width="13.4" height="29.6"/><rect class="pn b" x="158.0" y="37.2" width="13.4" height="29.6"/><rect class="pn a" x="173.8" y="37.2" width="13.4" height="29.6"/><rect class="pn b" x="189.6" y="37.2" width="13.4" height="29.6"/><rect class="pn a" x="205.4" y="37.2" width="13.4" height="29.6"/><rect class="pn a" x="63.2" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="79.0" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="94.8" y="69.2" width="13.4" height="31.6"/><rect class="pn on a" x="110.6" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="126.4" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="142.2" y="69.2" width="13.4" height="31.6"/><rect class="pn on a" x="158.0" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="173.8" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="189.6" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="205.4" y="69.2" width="13.4" height="31.6"/><rect class="pn a" x="63.2" y="103.2" width="13.4" height="33.6"/><rect class="pn on a" x="79.0" y="103.2" width="13.4" height="33.6"/><rect class="pn a" x="94.8" y="103.2" width="13.4" height="33.6"/><rect class="pn a" x="110.6" y="103.2" width="13.4" height="33.6"/><rect class="pn a" x="126.4" y="103.2" width="13.4" height="33.6"/><rect class="pn b" x="142.2" y="103.2" width="13.4" height="33.6"/><rect class="pn b" x="158.0" y="103.2" width="13.4" height="33.6"/><rect class="pn on a" x="173.8" y="103.2" width="13.4" height="33.6"/><rect class="pn a" x="189.6" y="103.2" width="13.4" height="33.6"/><rect class="pn a" x="205.4" y="103.2" width="13.4" height="33.6"/></g>
 
 <g font-family="ui-monospace,Menlo,monospace" font-size="4.4" fill="#cfe3ff" fill-opacity=".6" letter-spacing=".6">
-<text x="120" y="194" text-anchor="middle">20 M</text>
-<text transform="translate(6 72) rotate(-90)" text-anchor="middle">14.4 M</text>
 <text x="222" y="42" fill="#e0bb74" fill-opacity=".9">4F</text><text x="222" y="75" fill-opacity=".6">3F</text><text x="222" y="109" fill="#7fe3ff" fill-opacity=".9">2F</text><text x="222" y="145" fill-opacity=".6">1F</text>
 </g></svg></div>
     <a class="hint" href="#space" aria-label="Scroll"><i></i><span>Scroll</span></a>
@@ -523,10 +533,10 @@ h2.big{letter-spacing:-.025em}
     <div class="lab" data-r><b>2</b><span></span><b class="up" data-i18n="mReach"></b></div>
     <h2 class="big" data-split="reachH"></h2>
     <div class="uses">
-      <div class="use" data-r style="--i:0"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M28 34H132M36 34V100M124 34V100M28 100H44M116 100H132"/><path d="M58 34v-6M80 34v-6M102 34v-6"/><path d="M47 52l8-8q3 4 6 0l8 8-4 5-4-2v26H55V55l-4 2z"/><path d="M69 52l8-8q3 4 6 0l8 8-4 5-4-2v26H77V55l-4 2z" opacity=".55"/><path d="M91 52l8-8q3 4 6 0l8 8-4 5-4-2v26H99V55l-4 2z" opacity=".3"/></svg></div><b data-i18n="fit1t"></b><p data-i18n="fit1p"></p></div>
-      <div class="use" data-r style="--i:1"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M52 56H100V80Q100 98 76 98Q52 98 52 80Z"/><path d="M100 62H108Q118 62 118 72Q118 82 106 82H99"/><path d="M42 106H112"/><path d="M66 44Q60 36 68 28Q74 22 68 14M84 44Q78 36 86 28Q92 22 86 14"/></svg></div><b data-i18n="fit2t"></b><p data-i18n="fit2p"></p></div>
-      <div class="use" data-r style="--i:2"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="46" y="40" width="68" height="44" rx="3"/><rect x="52" y="46" width="56" height="32" rx="1" opacity=".45"/><path d="M36 90H124L118 98H42Z"/><path d="M132 90V52L120 42M114 44L126 38L128 46Z"/><rect x="12" y="80" width="26" height="6"/><rect x="15" y="73" width="22" height="6"/></svg></div><b data-i18n="fit3t"></b><p data-i18n="fit3p"></p></div>
-      <div class="use" data-r style="--i:3"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="40" y="30" width="60" height="40" rx="3"/><path d="M70 70V86M56 90H84M24 96H136"/><path d="M70 42V58M62 50H78"/><path d="M118 96V84H132V96"/><path d="M125 84Q118 68 124 60M125 84Q134 70 130 62"/></svg></div><b data-i18n="fit4t"></b><p data-i18n="fit4p"></p></div>
+      <div class="use" data-r style="--i:0"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M28 34H132M38 34V100M122 34V100M28 100H48M112 100H132"/><path d="M56 34v11M80 34v11M104 34v14"/><path d="M47 50L56 45L65 50L72 57L67 62L64 59V82H48V59L45 62L40 57Z"/><path d="M75 48L80 45L85 48L84 60L91 84H69L76 60Z"/><path d="M95 48H113L112 86H106.5L104 62L101.5 86H96Z"/></svg></div><b data-i18n="fit1t"></b><p data-i18n="fit1p"></p></div>
+      <div class="use" data-r style="--i:1"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M26 52H68V74Q68 92 47 92Q26 92 26 74Z"/><path d="M68 57H74Q82 57 82 65Q82 73 70 73"/><path d="M20 99H74"/><path d="M38 44Q34 38 38 32M54 44Q50 38 54 32"/><path d="M104 28V46M110 28V46M116 28V46M104 46Q104 56 110 56Q116 56 116 46M110 56V100"/><path d="M132 28C142 34 142 56 132 62V100"/></svg></div><b data-i18n="fit2t"></b><p data-i18n="fit2p"></p></div>
+      <div class="use" data-r style="--i:2"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M80 46Q58 36 34 42V92Q58 86 80 96Z"/><path d="M80 46Q102 36 126 42V92Q102 86 80 96Z"/><path d="M80 46V96"/><path d="M42 54Q60 50 72 56M42 65Q60 61 72 67M42 76Q60 72 72 78"/><path d="M88 56Q100 50 118 54M88 67Q100 61 118 65M88 78Q100 72 118 76" opacity=".6"/></svg></div><b data-i18n="fit3t"></b><p data-i18n="fit3p"></p></div>
+      <div class="use" data-r style="--i:3"><div class="ill"><svg class="ico" viewBox="0 0 160 120" aria-hidden="true" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="22" y="52" width="54" height="42" rx="3"/><path d="M40 52V44H58V52M22 70H76"/><rect x="45" y="66" width="8" height="8"/><rect x="92" y="46" width="46" height="46" rx="6"/><path d="M115 56V82M102 69H128"/><path d="M115 92V100M106 100H124"/></svg></div><b data-i18n="fit4t"></b><p data-i18n="fit4p"></p></div>
     </div>
   </div>
 </section>
@@ -580,8 +590,8 @@ h2.big{letter-spacing:-.025em}
     <div class="lab" data-r><b>4</b><span></span><b class="up" data-i18n="mInfo"></b></div>
     <h2 class="big" data-split="infoH"></h2>
     <div class="avail2">
-      <div class="ac" data-r style="--i:0"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="10" y="8" width="180" height="96" fill="var(--accent)" fill-opacity=".1" stroke="none"/><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/><text x="100" y="127" text-anchor="middle" fill="var(--fg)" fill-opacity=".5" font-family="var(--mono)" font-size="7" letter-spacing="1.4" stroke="none">20 M</text></svg></div><small data-i18n="ac1l"></small><b data-i18n="ac1a"></b><span data-i18n="ac1d"></span><span data-i18n="ac1r"></span></div>
-      <div class="ac" data-r style="--i:1"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="100" y="8" width="90" height="96" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)"/><path d="M100 8v96" stroke="var(--accent)"/><text x="145" y="60" text-anchor="middle" fill="var(--accent)" font-family="var(--mono)" font-size="9" letter-spacing="1.5" stroke="none">4-2</text><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/><text x="100" y="127" text-anchor="middle" fill="var(--fg)" fill-opacity=".5" font-family="var(--mono)" font-size="7" letter-spacing="1.4" stroke="none">20 M</text></svg></div><small data-i18n="ac2l"></small><b data-i18n="ac2a"></b><span data-i18n="ac2d"></span><span data-i18n="ac2r"></span></div>
+      <div class="ac" data-r style="--i:0"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="10" y="8" width="180" height="96" fill="var(--accent)" fill-opacity=".1" stroke="none"/><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/></svg></div><small data-i18n="ac1l"></small><b data-i18n="ac1a"></b><span data-i18n="ac1d"></span><span data-i18n="ac1r"></span></div>
+      <div class="ac" data-r style="--i:1"><div class="plan"><svg class="ico" viewBox="0 0 200 132" fill="none" stroke-width="1" aria-hidden="true"><rect x="100" y="8" width="90" height="96" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)"/><path d="M100 8v96" stroke="var(--accent)"/><text x="145" y="60" text-anchor="middle" fill="var(--accent)" font-family="var(--mono)" font-size="9" letter-spacing="1.5" stroke="none">4-2</text><rect x="10" y="8" width="180" height="96" stroke="var(--fg)" stroke-opacity=".8"/><rect x="10" y="8" width="30" height="44" stroke="var(--fg)" stroke-opacity=".45"/><path d="M10 30h30M25 8v44" stroke="var(--fg)" stroke-opacity=".3"/><path d="M52 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M75 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M98 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M121 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M144 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M167 104h12" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 116h180M10 113v6M190 113v6" stroke="var(--fg)" stroke-opacity=".4"/></svg></div><small data-i18n="ac2l"></small><b data-i18n="ac2a"></b><span data-i18n="ac2d"></span><span data-i18n="ac2r"></span></div>
     </div>
     <p class="acn" data-r data-i18n="acNote"></p>
     <div class="cta" data-r>
@@ -598,8 +608,8 @@ h2.big{letter-spacing:-.025em}
     <h2 class="big" data-split="inqH"></h2>
     <p class="inq-lead" data-r data-i18n="inqLead"></p>
     <div class="contacts" data-r>
-      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>창상주</b><a href="tel:01088459350">010-8845-9350</a><button type="button" data-copy="010-8845-9350" data-i18n="copy"></button></div>
-      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>지성국</b><a href="tel:01050538989">010-5053-8989</a><button type="button" data-copy="010-5053-8989" data-i18n="copy"></button></div>
+      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>창상주</b><a href="tel:01088459350">010-8845-9350</a><div class="cc-act"><a class="pill" href="tel:01088459350" data-i18n="call"></a><button type="button" data-copy="010-8845-9350" data-i18n="copy"></button></div></div>
+      <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3.5l1.8 4.5-2.3 1.6a11 11 0 0 0 5 5l1.6-2.3L20 15.2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>지성국</b><a href="tel:01050538989">010-5053-8989</a><div class="cc-act"><a class="pill" href="tel:01050538989" data-i18n="call"></a><button type="button" data-copy="010-5053-8989" data-i18n="copy"></button></div></div>
       <div class="cc"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg><span data-i18n="mailL"></span></b><a href="mailto:trunk11@nate.com">trunk11@nate.com</a><button type="button" data-copy="trunk11@nate.com" data-i18n="copy"></button></div>
     </div>
     <form class="mform" id="mform" data-r novalidate onsubmit="return false">
@@ -634,7 +644,7 @@ ko:{
  cV:'이마트 하루 방문객',cP:'건물 앞을 지나는 비율',cS:'간판을 눈여겨보는 비율',cOut:'하루 노출 (명)',cOutM:'한 달 노출 (명)',
  cHint:'계산식: 방문객 × 건물 앞을 지나는 비율 × 간판을 보는 비율. 실제 유동인구는 소상공인 상권정보시스템 수치로 대체할 예정입니다.',
  fit1t:'소매 · 패션',fit1p:'진열이 돋보이는 대로변 매장',
- fit2t:'카페 · 디저트',fit2p:'창가에서 사거리가 내려다보이는 자리',
+ fit2t:'카페 · 음식점',fit2p:'카페와 프랜차이즈 매장까지, 사거리가 내려다보이는 자리',
  fit3t:'스터디카페 · 학원',fit3p:'엘리베이터로 편하게, 조용히 오래 머무는 공간',
  fit4t:'사무실 · 병원',fit4p:'정남향이라 낮에 밝은 한 층',
  srcT:'출처',gAll:'전체',gExt:'외관',g2:'2층',g3:'3층',g4:'4층',gView:'전망',
@@ -673,12 +683,12 @@ navSpace:'공간 선택',navContact:'문의',mIdea:'컨셉',mInfo:'임대 안내
  salePrice:'매각가',salePriceV:'협의',saleTenancy:'임대 현황',saleTenancyV:'자료실 요청 후 공개',
  saleNote:'공개 화면에는 층별 공실 여부만 표시하며, 임차인 정보와 수익 자료는 비공개로 전달합니다.',
  askSale:'매각 자료 요청',
- pinsB:'사진 핀',views:{map:'전체 지도',corner:'코너',front:'정면',west:'동측',rear:'후면',aerial:'위에서'},
+ pinsB:'사진 핀',views:{core:'계단 · 승강기 · 화장실',map:'전체 지도',corner:'코너',front:'정면',west:'동측',rear:'후면',aerial:'위에서'},
  spin:'자동 회전',
  labels:{park:'전용 주차장',emart:'이마트 충주점',b:'중원대로 3424',jw:'중원대로',gw:'국원대로',jy:'중앙로',nb:'인접 건물'},
  pfTitle:'포트폴리오',pfLead:'충주에 있는 저희 건물 세 곳입니다. 지금은 첫 번째 건물만 열어두었어요.',viewModel:'3D 모델 보기',
  soon:'준비 중',soonSub:'자료 수집 후 추가됩니다.',
- inqTitle:'문의하기',copy:'복사',copied:'복사됨',viewPhotos:'사진으로 보기',mfT:'메일로 바로 문의하기',mfName:'이름',mfPhone:'연락처',mfMsg:'문의 내용',mfGmail:'Gmail로 보내기',mfMail:'메일 앱으로 보내기',mfCopy:'내용 복사',mfNote:'버튼을 누르면 작성한 내용이 담긴 새 메일이 열려요. 보내기는 직접 눌러 주세요.',mfPre:function(f,u){return f+'층 '+u+'호 문의드립니다.'},mfSub:'KJ Buildings 문의',mfBody:function(n,p,m){return m+'\n\n'+(n?'이름: '+n+'\n':'')+(p?'연락처: '+p:'')},mailL:'이메일',inqLead:'전화나 이메일로 편하게 연락 주세요. 건물주가 직접 답해드려요.',
+ inqTitle:'문의하기',copy:'복사',copied:'복사됨',call:'전화하기',viewPhotos:'사진으로 보기',mfT:'메일로 바로 문의하기',mfName:'이름',mfPhone:'연락처',mfMsg:'문의 내용',mfGmail:'Gmail로 보내기',mfMail:'메일 앱으로 보내기',mfCopy:'내용 복사',mfNote:'버튼을 누르면 작성한 내용이 담긴 새 메일이 열려요. 보내기는 직접 눌러 주세요.',mfPre:function(f,u){return f+'층 '+u+'호 문의드립니다.'},mfSub:'KJ Buildings 문의',mfBody:function(n,p,m){return m+'\n\n'+(n?'이름: '+n+'\n':'')+(p?'연락처: '+p:'')},mailL:'이메일',inqLead:'전화나 이메일로 편하게 연락 주세요. 건물주가 직접 답해드려요.',
  fName:'이름 / 회사',fContact:'연락처 (전화 · 카카오톡)',fInterest:'관심 항목',fMsg:'메시지',send:'문의 보내기',
  optLease:'임대 문의: ',optSale:'건물 전체 매각 자료 요청',optTour:'현장 방문 예약',
  okMsg:'데모 화면입니다. 실제로 전송된 내용은 없습니다.',
@@ -694,7 +704,7 @@ en:{
  cV:'Emart visitors per day',cP:'Share who pass our frontage',cS:'Share who notice the signage',cOut:'Daily exposure (people)',cOutM:'Monthly exposure (people)',
  cHint:'Formula: visitors x share passing the frontage x share noticing signage. Real footfall will replace this with figures from the small business district system (sg.sbiz.or.kr).',
  fit1t:'Retail & fashion',fit1p:'A main-road shopfront that sets the display apart',
- fit2t:'Café & dessert',fit2p:'A window seat above the junction',
+ fit2t:'Cafés & restaurants',fit2p:'Cafés and franchise F&B, with the junction in view',
  fit3t:'Study café & academy',fit3p:'Step out of the elevator into a quiet, settled space',
  fit4t:'Office & clinic',fit4p:'A south-facing floor, bright all day',
  srcT:'Sources',gAll:'All',gExt:'Exterior',g2:'2F',g3:'3F',g4:'4F',gView:'Views',
@@ -733,12 +743,12 @@ navSpace:'Select space',navContact:'Contact',mIdea:'Idea',mInfo:'Availability',m
  salePrice:'Asking price',salePriceV:'On request',saleTenancy:'Rent roll',saleTenancyV:'Shared after data room request',
  saleNote:'The public view shows only leased or available per floor. Tenant names and income data are shared privately.',
  askSale:'Request sale package',
- pinsB:'Photo pins',views:{map:'Overview',corner:'Corner',front:'Front',west:'East',rear:'Rear',aerial:'Top'},
+ pinsB:'Photo pins',views:{core:'Stairs, lift, restrooms',map:'Overview',corner:'Corner',front:'Front',west:'East',rear:'Rear',aerial:'Top'},
  spin:'Auto-rotate',
  labels:{park:'Dedicated parking',emart:'Emart Chungju',b:'3424 Jungwon-daero',jw:'Jungwon-daero',gw:'Gugwon-daero',jy:'Jungang-ro',nb:'Adjacent building'},
  pfTitle:'Portfolio',pfLead:'Three of our buildings in Chungju. Only the first is open for now.',viewModel:'View 3D model',
  soon:'Coming soon',soonSub:'Added once the data is collected.',
- inqTitle:'Get in touch',copy:'Copy',copied:'Copied',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m){return m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or write any time. The owner replies personally.',
+ inqTitle:'Get in touch',copy:'Copy',copied:'Copied',call:'Call',viewPhotos:'View photos',mfT:'Email us from here',mfName:'Name',mfPhone:'Phone',mfMsg:'Message',mfGmail:'Send with Gmail',mfMail:'Open mail app',mfCopy:'Copy message',mfNote:'The buttons open a new email with your message filled in. You press send yourself.',mfPre:function(f,u){return 'I am interested in unit '+f+'-'+u+'.'},mfSub:'KJ Buildings inquiry',mfBody:function(n,p,m){return m+'\n\n'+(n?'Name: '+n+'\n':'')+(p?'Phone: '+p:'')},mailL:'Email',inqLead:'Call or write any time. The owner replies personally.',
  fName:'Name / Company',fContact:'Contact (phone or KakaoTalk)',fInterest:'Interested in',fMsg:'Message',send:'Send inquiry',
  optLease:'Lease inquiry: ',optSale:'Whole-building sale package',optTour:'Book a site visit',
  okMsg:'This is a demo. Nothing was actually sent.',
@@ -797,7 +807,7 @@ function renderInterest(){
 }
 function renderViews(){
   var t=T(),box=document.getElementById('views'),h='';
-  ['map','corner','front','rear','aerial'].forEach(function(k){h+='<button type="button" data-view="'+k+'" aria-pressed="'+(curView===k)+'">'+t.views[k]+'</button>'});
+  ['map','corner','front','rear','aerial','core'].forEach(function(k){h+='<button type="button" data-view="'+k+'" aria-pressed="'+(curView===k)+'">'+t.views[k]+'</button>'});
   h+='<button type="button" id="pinb" aria-pressed="'+!!window.__pins+'">'+t.pinsB+'</button>';h+='<button type="button" id="expb" aria-pressed="'+exploded+'">'+t.explode+'</button>'+(have().length?'':'<button type="button" id="addph">'+t.addPhotos+'</button>')+'<span class="sp"></span><button type="button" id="spin" aria-pressed="'+autoSpin+'">'+t.spin+'</button>';
   box.innerHTML=h;
 }
@@ -847,7 +857,8 @@ var VIEWS={
  front:{th:0,ph:1.2,r:64,t:[-38,6,-41.5]},
  west:{th:Math.PI/2,ph:1.2,r:64,t:[-38,6,-41.5]},
  rear:{th:Math.PI+.4,ph:.85,r:72,t:[-38,5,-41.5]},
- aerial:{th:.2,ph:.6,r:82,t:[-38,5,-41.5]}
+ aerial:{th:.2,ph:.6,r:82,t:[-38,5,-41.5]},
+ core:{th:.5,ph:1.05,r:36,t:[-45.5,7,-40]}
 };
 
 function col(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()||'#888888'}
@@ -950,6 +961,8 @@ function buildScene(){
   mats.tile=new THREE.MeshStandardMaterial({map:tileTex,roughness:.45});
   mats.strip=new THREE.MeshStandardMaterial({color:new THREE.Color(0x7fa6cf).convertSRGBToLinear(),roughness:.15,metalness:.6,emissive:new THREE.Color(0x1a3a66)});
   mats.stair=new THREE.MeshStandardMaterial({color:new THREE.Color(0xc7c3b9).convertSRGBToLinear(),roughness:.8});
+  mats.core=new THREE.MeshStandardMaterial({color:new THREE.Color(0xe0bb74).convertSRGBToLinear(),roughness:.6,emissive:new THREE.Color(0x4a3a18)});
+  mats.wc=new THREE.MeshStandardMaterial({color:new THREE.Color(0x7fe3ff).convertSRGBToLinear(),roughness:.5,emissive:new THREE.Color(0x12404f)});
   mats.elev=new THREE.MeshStandardMaterial({color:new THREE.Color(0x8c9096).convertSRGBToLinear(),roughness:.4,metalness:.7});
   mats.elevDoor=new THREE.MeshStandardMaterial({color:new THREE.Color(0xb9bdc3).convertSRGBToLinear(),roughness:.35,metalness:.8});
   mats.red=new THREE.MeshStandardMaterial({color:new THREE.Color(0xd23a34).convertSRGBToLinear(),roughness:.5});
@@ -993,14 +1006,20 @@ function buildScene(){
       var pm=new THREE.Mesh(new THREE.BoxGeometry(FP.w/2-1.2,.14,FP.d-1.4),mats.leased);
       pm.position.set(FP.x0+FP.w*(.25+.5*u),.52,FP.z0+FP.d/2);grp.add(pm);F.plates.push(pm);plateMeshes.push({m:pm,id:(i+1)+'-'+(u+1)});
     }
-    /* stairs and elevator core on every floor */
+    /* vertical core inside the ribbed tower: stair flight, lift and (2F, 3F) restrooms */
     (function(){
-      var rise=(h-.6)/10,sg=new THREE.Group();
-      for(var k=0;k<10;k++){var sh=(k+1)*rise;var sb=new THREE.Mesh(new THREE.BoxGeometry(.38,sh,1.8),mats.stair);sb.position.set(19.61-k*.38,.4+sh/2,9.7);sg.add(sb)}
-      var ld=new THREE.Mesh(new THREE.BoxGeometry(1.4,10*rise,1.8),mats.stair);ld.position.set(15.3,.4+5*rise,9.7);sg.add(ld);
-      var rl2=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(19.8,.4+.9,8.7),new THREE.Vector3(16.0,.4+10*rise+.9,8.7),new THREE.Vector3(16.0,.4+10*rise+.9,8.7),new THREE.Vector3(14.6,.4+10*rise+.9,8.7)]),new THREE.LineBasicMaterial({color:0xc9a66b}));sg.add(rl2);
-      var ev=new THREE.Mesh(new THREE.BoxGeometry(1.9,h-.4,1.9),mats.elev);ev.position.set(12.5,.4+(h-.4)/2,9.9);sg.add(ev);
-      sg.add(plane(1.1,2.1,mats.elevDoor,12.5,.4+1.05,8.93));
+      var rise=(h-.6)/10,sg=new THREE.Group(),y0=.4;
+      for(var k=0;k<10;k++){var sh=(k+1)*rise;var sb=new THREE.Mesh(new THREE.BoxGeometry(1.7,sh,.38),mats.core);sb.position.set(17.1,y0+sh/2,1.1+k*.38);sg.add(sb)}
+      var ld=new THREE.Mesh(new THREE.BoxGeometry(2.6,10*rise,1.2),mats.core);ld.position.set(17.5,y0+5*rise,5.5);sg.add(ld);
+      var rl2=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(16.2,y0+.9,1.1),new THREE.Vector3(16.2,y0+10*rise+.9,4.9)]),new THREE.LineBasicMaterial({color:0x7fe3ff}));sg.add(rl2);
+      var ev=new THREE.Mesh(new THREE.BoxGeometry(2.0,h-.4,2.0),mats.elev);ev.position.set(18.7,y0+(h-.4)/2,9.6);sg.add(ev);
+      sg.add(plane(1.2,2.1,mats.elevDoor,18.7,y0+1.05,8.58));
+      if(i===1||i===2){
+        var wm=mats.wc;
+        [[3.6,2.2,.08,17.9,7.55],[.08,2.2,1.5,17.9,6.8],[.08,2.2,1.5,16.2,6.8],[.08,2.2,1.5,19.6,6.8]].forEach(function(q){var w2=new THREE.Mesh(new THREE.BoxGeometry(q[0],q[1],q[2]),wm);w2.position.set(q[3],y0+q[1]/2,q[4]);sg.add(w2)});
+        [17.05,18.75].forEach(function(x){var t2=new THREE.Mesh(new THREE.BoxGeometry(.5,.42,.6),mats.elevDoor);t2.position.set(x,y0+.21,7.15);sg.add(t2)});
+        var sgn=new THREE.Mesh(new THREE.PlaneGeometry(1.0,.5),new THREE.MeshBasicMaterial({map:signTex('WC','#0b1029','#7fe3ff',128,64)}));sgn.position.set(17.9,y0+2.45,6.0);sgn.rotation.y=Math.PI;sg.add(sgn);
+      }
       grp.add(sg);
     })();
     if(i){
@@ -1010,8 +1029,8 @@ function buildScene(){
     }else{
       /* ground floor: dark fascia the full width, JESSI on the left, HAZZYS entrance on the right */
       var fa=new THREE.Mesh(new THREE.BoxGeometry(FP.w,.95,.7),mats.fascia);fa.position.set(FP.w/2,h-.48,FP.z0-.3);grp.add(fa);
-      var ef=new THREE.Mesh(new THREE.BoxGeometry(4.2,3.0,.25),mats.fascia);ef.position.set(5.6,1.9,FP.z0-.1);grp.add(ef);
-      grp.add(plane(3.4,2.6,mats.elevDoor,5.6,1.7,FP.z0-.25));
+      [3.2,8.8,14.4].forEach(function(dx){var ef=new THREE.Mesh(new THREE.BoxGeometry(3.4,3.0,.25),mats.fascia);ef.position.set(dx,1.9,FP.z0-.1);grp.add(ef);
+        grp.add(plane(2.6,2.6,mats.elevDoor,dx,1.7,FP.z0-.25))});
     }
     if(i===1){
       /* second-floor fascia band with the sign, projecting above the storefront */
@@ -1062,8 +1081,9 @@ function buildScene(){
     }
     /* a few people use the front door, the rest roam the pavement and around the building (polyline routes, ping-pong) */
     var R=[
-      {p:[[3.8,-8.6],[5.2,-.25]],sp:1.0,door:1},
-      {p:[[7.5,-8.6],[6.2,-.25]],sp:.9,door:1,w:5},
+      {p:[[2.0,-8.6],[3.2,-.25]],sp:1.0,door:1},
+      {p:[[10.2,-8.6],[8.8,-.25]],sp:.9,door:1,w:4},
+      {p:[[13,-8.6],[14.4,-.25]],sp:1.1,door:1,w:7},
       {p:[[-12,-8.5],[34,-8.5]],sp:1.1},
       {p:[[20,-8.4],[-3,-8.4],[-3,-1.6],[-3,13.5],[8,13.5],[22,13.5]],sp:.9},
       {p:[[18,-2.4],[-2.6,-2.4],[-2.6,6],[-2.6,13],[10,13]],sp:.8}
@@ -1132,6 +1152,7 @@ function refreshLook(){
 function wrap(a){while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return a}
 function setView(k,keepSpin){
   var v=VIEWS[k];if(!v)return;curView=k;
+  [mats.rib,mats.strip,mats.side].forEach(function(m){if(!m)return;var on=k==='core';m.transparent=on;m.opacity=on?.1:1;m.depthWrite=!on;m.needsUpdate=true});
   if(!keepSpin)autoSpin=false;
   tgt.th=cur.th+wrap(v.th-cur.th);tgt.ph=v.ph;tgt.r=v.r;
   tgt.tx=v.t[0];tgt.ty=v.t[1]+(exploded&&k!=='map'?5:0);tgt.tz=v.t[2];
@@ -1387,6 +1408,27 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.get
   if(rail){
     function prog(){var m=rail.scrollWidth-rail.clientWidth;var r=m>0?rail.scrollLeft/m:0;var w=Math.max(.12,rail.clientWidth/Math.max(rail.scrollWidth,1));bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(r*(1/w-1)*100)+'%)'}
     rail.addEventListener('scroll',prog,{passive:true});window.addEventListener('resize',prog);prog();
+    /* autoplay: step to the next photo, loop at the end, pause while the visitor is interacting */
+    (function(){
+      if(RM)return;
+      var last=0,hover=false,vis=true;
+      function touch(){last=Date.now()}
+      ['pointerdown','wheel','touchstart','keydown','focusin'].forEach(function(ev){rail.addEventListener(ev,touch,{passive:true})});
+      rail.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hover=true});
+      rail.addEventListener('pointerleave',function(){hover=false;touch()});
+      document.querySelectorAll('[data-rail],#chips button').forEach(function(b){b.addEventListener('click',touch)});
+      if(window.IntersectionObserver)new IntersectionObserver(function(en){vis=en[0].isIntersecting},{threshold:.35}).observe(rail);
+      function step(){
+        if(hover||!vis||document.hidden||rail.classList.contains('drag')||Date.now()-last<5000)return;
+        var it=[].filter.call(rail.querySelectorAll('.gi'),function(f){return !f.classList.contains('off')});if(!it.length)return;
+        var max=rail.scrollWidth-rail.clientWidth;
+        if(rail.scrollLeft>=max-6){rail.scrollTo({left:0,behavior:'smooth'});return}
+        var rl=rail.getBoundingClientRect().left,pl=parseFloat(getComputedStyle(rail).paddingLeft)||0,nx=null;
+        for(var i=0;i<it.length;i++){var d=it[i].getBoundingClientRect().left-rl-pl;if(d>24){nx=d;break}}
+        if(nx===null)rail.scrollTo({left:0,behavior:'smooth'});else rail.scrollBy({left:nx,behavior:'smooth'});
+      }
+      setInterval(step,3600);
+    })();
     var down=false,sx=0,sl=0,moved=0;
     rail.addEventListener('pointerdown',function(e){if(e.pointerType==='touch')return;down=true;moved=0;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add('drag')});
     window.addEventListener('pointermove',function(e){if(!down)return;var d=e.clientX-sx;moved=Math.max(moved,Math.abs(d));rail.scrollLeft=sl-d});
